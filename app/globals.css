@@ -8,11 +8,11 @@
 .numbers{border-top:1px solid var(--line)}
 .numbers h2{font-size:clamp(34px,4vw,58px);line-height:1.06;letter-spacing:-.055em;font-weight:500;margin:0}
 .numbersTop{display:grid;grid-template-columns:.35fr 1fr;gap:6vw;margin-bottom:55px}
-.numberGrid{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.numberGrid article{min-height:210px;padding:26px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.numberGrid{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);border-radius:8px;overflow:hidden}
+.numberGrid article{min-height:210px;padding:26px 22px;border-right:1px solid var(--ink);display:flex;flex-direction:column}
 .numberGrid article:last-child{border:0}.numberGrid strong{font-size:clamp(24px,2.4vw,38px);line-height:1;font-weight:600;letter-spacing:-.06em}
 .numberGrid p{font-size:15px;line-height:1.4;margin:auto 0 8px;font-weight:600}.numberGrid small{font-size:14px;line-height:1.5;color:var(--muted)}
-.numberGrid .accentStat{background:var(--accent);color:#fff}.numberGrid .accentStat p{color:#fff}
+.numberGrid .accentStat{background:transparent;color:var(--ink);outline:1px solid var(--ink);outline-offset:-1px}.numberGrid .accentStat p{color:var(--ink)}
 .officeGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 20px}.officeGrid .projectImage{height:440px}
 .homes{border-top:1px solid var(--line)}.sectionNote{max-width:420px;font-size:15px;line-height:1.6;color:var(--muted);margin:0}
 .homeGrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.homeCard .projectImage{height:480px}
