@@ -106,3 +106,43 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .lightSection .numberGrid .accentStat,.lightSection .numberGrid .accentStat p{color:var(--ink)}
 @media(max-width:900px){.lightSection{padding-left:6vw;padding-right:6vw}.proofBar.lightSection{padding-left:6vw;padding-right:6vw}}
 @media(max-width:560px){.brand img{width:138px}.footerLogo img{width:168px}.proofBar.lightSection{margin:0;padding:18px 6vw}}
+
+/* Editorial composition: content leads, decorative labels step back */
+.kicker{display:none}
+.services{padding-top:140px;padding-bottom:150px}
+.editorialIntro{grid-template-columns:minmax(0,1.25fr) minmax(290px,.62fr);gap:9vw;align-items:end;margin-bottom:78px}
+.editorialIntro h2{font-size:clamp(42px,5.2vw,74px);line-height:1.01;max-width:900px}
+.editorialIntro .leadText{margin:0 0 5px;max-width:520px}
+.serviceGrid{grid-template-columns:1.22fr .82fr 1fr;gap:24px;align-items:start}
+.serviceCard:nth-child(2){margin-top:92px}
+.serviceCard:nth-child(3){margin-top:34px}
+.serviceCard:nth-child(1) .serviceImage{height:530px}
+.serviceCard:nth-child(2) .serviceImage{height:370px}
+.serviceCard:nth-child(3) .serviceImage{height:450px}
+.serviceCard h3{font-size:20px;margin-top:22px}
+.serviceCard p{max-width:420px}
+.numbersTop{display:block;max-width:1040px;margin-bottom:64px}
+.sectionHeader>div{max-width:900px}
+.aboutCopy h2,.processTitle h2,.contactPitch h2{margin-top:0}
+.benefitsIntro{display:block;max-width:950px}
+.isoSection{display:block}
+.isoSection>div{max-width:1120px;margin-left:auto}
+
+@media(max-width:900px){
+ .services{padding-top:95px;padding-bottom:105px}
+ .editorialIntro{grid-template-columns:1fr;gap:30px;margin-bottom:55px}
+ .serviceGrid{grid-template-columns:1fr 1fr}
+ .serviceCard:nth-child(2),.serviceCard:nth-child(3){margin-top:0}
+ .serviceCard:nth-child(1){grid-column:1/-1}
+ .serviceCard:nth-child(1) .serviceImage{height:520px}
+ .serviceCard:nth-child(2) .serviceImage,.serviceCard:nth-child(3) .serviceImage{height:380px}
+ .isoSection>div{margin-left:0}
+}
+@media(max-width:560px){
+ .services{padding-top:78px;padding-bottom:84px}
+ .editorialIntro h2{font-size:36px}
+ .serviceGrid{grid-template-columns:1fr;gap:48px}
+ .serviceCard:nth-child(1){grid-column:auto}
+ .serviceCard:nth-child(1) .serviceImage,.serviceCard:nth-child(2) .serviceImage,.serviceCard:nth-child(3) .serviceImage{height:380px}
+ .numbersTop{margin-bottom:40px}
+}
