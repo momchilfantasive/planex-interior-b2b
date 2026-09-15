@@ -3,9 +3,9 @@
 import {useRef} from 'react';
 
 const services=[
- {image:'/images/service-concept-v2.jpg',title:'Интериорна концепция',href:'https://planexinterior.bg/uslugi/interiorna-kontseptsiya/',text:'Функционално планиране, авторски интериор, цветове, материали и детайлни спецификации за офиси, търговски площи и домове.'},
- {image:'/images/service-renovation-v2.jpg',title:'Довършителни работи',href:'https://planexinterior.bg/uslugi/dovrshitelni-raboti/',text:'Бюджетиране, график, доставки и координация на всички изпълнители до напълно завършен и обзаведен обект.'},
- {image:'/images/service-finishing-v2.jpg',title:'Ремонтни дейности',href:'https://planexinterior.bg/uslugi/remontni-deynosti/',text:'Цялостно или частично обновяване на офиси и жилища, включително инсталации, настилки, стени, мебели, оборудване и финално почистване.'},
+ {image:'/images/service-concept-editorial.png',title:'Интериорна концепция',href:'https://planexinterior.bg/uslugi/interiorna-kontseptsiya/',text:'Функционално планиране, авторски интериор, цветове, материали и детайлни спецификации за офиси, търговски площи и домове.'},
+ {image:'/images/service-finishing-editorial.png',title:'Довършителни работи',href:'https://planexinterior.bg/uslugi/dovrshitelni-raboti/',text:'Бюджетиране, график, доставки и координация на всички изпълнители до напълно завършен и обзаведен обект.'},
+ {image:'/images/service-renovation-editorial.png',title:'Ремонтни дейности',href:'https://planexinterior.bg/uslugi/remontni-deynosti/',text:'Цялостно или частично обновяване на офиси и жилища, включително инсталации, настилки, стени, мебели, оборудване и финално почистване.'},
 ];
 const offices=[
  {image:'/images/project-office.jpg',title:'Офис, кв. Витоша',place:'София'},

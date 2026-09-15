@@ -151,3 +151,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .heroVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .heroShade{background:linear-gradient(90deg,rgba(30,38,46,.76),rgba(40,50,59,.36) 70%,rgba(40,50,59,.22))}
 @media(prefers-reduced-motion:reduce){.heroVideo{display:none}.hero{background:url('/images/project-office.jpg') center 45%/cover}}
+
+/* Equal service image rhythm */
+.serviceGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.serviceCard:nth-child(2),.serviceCard:nth-child(3){margin-top:0}
+.serviceCard:nth-child(1) .serviceImage,.serviceCard:nth-child(2) .serviceImage,.serviceCard:nth-child(3) .serviceImage{height:460px;filter:saturate(.68) contrast(.98)}
+@media(max-width:900px){.serviceGrid{grid-template-columns:1fr 1fr}.serviceCard:nth-child(1){grid-column:1/-1}.serviceCard:nth-child(1) .serviceImage,.serviceCard:nth-child(2) .serviceImage,.serviceCard:nth-child(3) .serviceImage{height:420px}}
+@media(max-width:560px){.serviceGrid{grid-template-columns:1fr}.serviceCard:nth-child(1){grid-column:auto}.serviceCard:nth-child(1) .serviceImage,.serviceCard:nth-child(2) .serviceImage,.serviceCard:nth-child(3) .serviceImage{height:360px}}
