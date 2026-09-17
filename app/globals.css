@@ -98,7 +98,7 @@ footer{background:var(--surface)}.footerWord{color:#43505b}.footerBottom{border-
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#64ddf4}
 
 /* Alternating light surfaces */
-.lightSection{--ink:#303b44;--muted:#64717a;--line:#ccd3d7;margin-left:0;margin-right:0;padding-left:5vw;padding-right:5vw;background:#f3f5f3;color:var(--ink)}
+.lightSection{--ink:#303b44;--muted:#64717a;--line:#ccd3d7;margin-left:0;margin-right:0;padding-left:5vw;padding-right:5vw;background:#ebedf2;color:var(--ink)}
 .proofBar.lightSection{margin:0;padding:32px 5vw;border-color:var(--line)}
 .lightSection .projectCard .category,.lightSection .homeCard .category{background:#e1e8e9;color:#4d5b64;border-color:#c8d3d6}
 .lightSection .numberGrid,.lightSection .numberGrid article,.lightSection .numberGrid .accentStat,.lightSection .stepList,.lightSection .step{border-color:#89949b;outline-color:#89949b}
