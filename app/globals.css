@@ -225,9 +225,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .portfolioCard:hover .portfolioImage img{transform:scale(1.025);filter:saturate(1)}
 .portfolioTag{position:absolute;top:16px;right:16px;padding:8px 12px;border:1px solid rgba(255,255,255,.75);border-radius:999px;background:rgba(238,242,244,.94);color:#34434e;font-size:14px;font-weight:600}
 .portfolioCaption{display:flex;justify-content:space-between;align-items:start;gap:14px;padding-top:17px}
-.portfolioCaption h2{margin:0;font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:19px;line-height:1.35}
-.portfolioCaption span{display:flex;align-items:center;gap:6px;white-space:nowrap;color:#62717c;font-size:14px}
+.portfolioProjectTitle{display:block;font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:19px;line-height:1.35}
+.portfolioCaption .portfolioLocation{display:flex;align-items:center;gap:6px;white-space:nowrap;color:#62717c;font-size:14px}
 .portfolioCaption svg{width:16px;height:16px}
+.portfolioCard{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.portfolioCard:focus-visible{outline:3px solid #29c6e5;outline-offset:6px;border-radius:10px}
+.portfolioImage{display:block}
+.portfolioOpenHint{position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.68);border-radius:50%;background:rgba(43,53,63,.72);color:#fff;font-size:23px;line-height:1;opacity:0;transform:translateY(5px);transition:opacity .2s ease,transform .2s ease}
+.portfolioCard:hover .portfolioOpenHint,.portfolioCard:focus-visible .portfolioOpenHint{opacity:1;transform:translateY(0)}
+.portfolioLightbox{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:clamp(18px,3vw,44px);border:0;background:#252d35;color:#f7f9fa;overflow:hidden}
+.portfolioLightbox::backdrop{background:rgba(17,22,28,.94)}
+.portfolioLightboxContent{display:grid;width:100%;height:100%;grid-template-rows:auto minmax(0,1fr) auto;gap:20px}
+.portfolioLightboxTop,.portfolioLightboxCaption{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.portfolioLightboxKind{font-size:14px;color:#c4cdd3}
+.portfolioLightboxClose,.portfolioLightboxArrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font:400 32px/1 var(--font-inter),sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.portfolioLightboxClose:hover,.portfolioLightboxArrow:hover{background:rgba(41,198,229,.22);border-color:#29c6e5}
+.portfolioLightboxStage{position:relative;min-height:0;display:grid;place-items:center}
+.portfolioLightboxImage{object-fit:contain;padding:0 70px}
+.portfolioLightboxArrow{position:absolute;z-index:1;top:50%;transform:translateY(-50%);font-size:38px}
+.portfolioLightboxPrevious{left:0}.portfolioLightboxNext{right:0}
+.portfolioLightboxCaption h2{margin:0 0 5px;font-family:var(--font-montserrat),sans-serif;font-size:clamp(20px,2.3vw,30px);font-weight:500;line-height:1.2}
+.portfolioLightboxCaption p{display:flex;align-items:center;gap:7px;margin:0;color:#c4cdd3;font-size:15px}
+.portfolioLightboxCaption svg{width:17px;height:17px}
+.portfolioLightboxCount{color:#c4cdd3;font-size:14px;font-variant-numeric:tabular-nums}
+.portfolioLightbox button:focus-visible{outline:3px solid #29c6e5;outline-offset:4px}
+@media(max-width:560px){.portfolioLightbox{padding:15px}.portfolioLightboxContent{gap:14px}.portfolioLightboxClose,.portfolioLightboxArrow{width:44px;height:44px}.portfolioLightboxImage{padding:0 48px}.portfolioLightboxCaption{align-items:end}.portfolioLightboxCaption p{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.portfolioOpenHint,.portfolioImage img{transition:none}}
 .contactPageGrid{padding:100px 10vw;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;background:var(--paper)}
 .contactOffice{padding:36px;border:1px solid rgba(255,255,255,.22);border-radius:10px}
 .contactOffice .kicker{color:#83d9e8}.contactOffice h2{font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:42px}
@@ -245,7 +268,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .footerBottom>p{margin:0;font-size:14px;text-align:right}
 @media(max-width:1000px){.siteHeader{gap:18px}.siteHeader nav{gap:12px;font-size:13px}.siteHeader .brand img{width:140px}.siteHeader .navCta{font-size:13px}.innerHero{padding:82px 7vw}.editorialBody,.aboutResponsibilities,.companyStory{padding-left:7vw;padding-right:7vw}.portfolioGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.contactBand{padding-left:7vw;padding-right:7vw}}
 @media(max-width:760px){.siteHeader{padding:14px 5vw 8px;min-height:78px;flex-wrap:wrap;gap:8px 14px}.siteHeader nav{display:flex;order:3;flex-basis:100%;justify-content:flex-start;gap:8px 18px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.siteHeader nav::-webkit-scrollbar{display:none}.siteHeader nav a{flex:none}.siteHeader .brand img{width:145px}.innerHero{padding:70px 7vw 75px}.innerHero h1{font-size:clamp(42px,11vw,66px)}.innerLead{font-size:17px}.editorialBody{padding:72px 7vw 80px}.editorialCopy{font-size:17px}.serviceGallery{grid-template-columns:1fr 1fr;margin-bottom:70px}.serviceGalleryImage{min-height:240px}.serviceGalleryImage.image1{min-height:500px}.serviceDetails,.aboutResponsibilities,.companyStory,.aboutPageBody{grid-template-columns:1fr;gap:32px}.serviceDetails h2,.aboutResponsibilities h2,.companyStory h2{font-size:34px}.contactBand{padding:65px 7vw;display:block}.contactBand .pill{margin-top:24px}.aboutPageImage{min-height:400px}.aboutPageBody .editorialCopy{margin-top:0}.aboutResponsibilities,.companyStory{padding:75px 7vw}.portfolioPage{padding:55px 5vw 75px}.portfolioIntro{margin:0 2vw 32px}.portfolioCaption{flex-direction:column}.contactPageGrid{grid-template-columns:1fr;padding:60px 7vw}.siteFooter{padding:55px 6vw 24px}.siteFooter .footerTop{display:block;padding-bottom:28px}.siteFooter .footerTop .pill{margin-top:22px}.siteFooter .footerNav{gap:6px 16px}.siteFooter .footerBottom{align-items:flex-start;flex-direction:column}.footerBottom>p{text-align:left}.isoNote{align-items:flex-start;flex-direction:column;gap:10px}}
-@media(max-width:520px){.innerHero h1{font-size:42px}.serviceGallery{grid-template-columns:1fr}.serviceGalleryImage,.serviceGalleryImage.image1{grid-row:auto;min-height:300px}.portfolioGrid{grid-template-columns:1fr;gap:34px}.portfolioImage{aspect-ratio:1.12}.portfolioCaption{flex-direction:row;align-items:center}.portfolioCaption h2{font-size:17px}.portfolioCaption span{font-size:14px}.contactOffice{padding:26px}.contactOffice>div{flex-direction:column;gap:0}.siteFooter .groupLinks{flex-direction:column;gap:4px}.siteHeader .navCta{padding:11px 13px;font-size:13px}.isoNote strong{font-size:25px}}
+@media(max-width:520px){.innerHero h1{font-size:42px}.serviceGallery{grid-template-columns:1fr}.serviceGalleryImage,.serviceGalleryImage.image1{grid-row:auto;min-height:300px}.portfolioGrid{grid-template-columns:1fr;gap:34px}.portfolioImage{aspect-ratio:1.12}.portfolioCaption{flex-direction:row;align-items:center}.portfolioProjectTitle{font-size:17px}.portfolioCaption .portfolioLocation{font-size:14px}.contactOffice{padding:26px}.contactOffice>div{flex-direction:column;gap:0}.siteFooter .groupLinks{flex-direction:column;gap:4px}.siteHeader .navCta{padding:11px 13px;font-size:13px}.isoNote strong{font-size:25px}}
 
 /* Service pages: centered typography, generous images and a readable content width. */
 .servicePage { overflow: clip; }
