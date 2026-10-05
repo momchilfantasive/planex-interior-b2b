@@ -175,3 +175,74 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .projectLocation svg{width:17px;height:17px;flex:0 0 17px}
 .projectsFooter{justify-content:flex-end}
 @media(max-width:560px){.projectImage .category{top:14px;right:14px}.projectCard .projectDetails,.homeCard>div.projectDetails{gap:12px;flex-wrap:wrap;margin-top:16px}.projectLocation,.homeCard>div.projectDetails .projectLocation{padding-top:0}.projectsFooter{margin-top:22px}}
+
+/* Secondary pages */
+.innerPage{background:var(--paper);min-height:100vh}
+.siteHeader{position:relative;z-index:5;min-height:90px;padding:16px 5vw;display:flex;align-items:center;justify-content:space-between;gap:32px;background:#3b4651;color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+.siteHeader nav{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,30px);font-size:14px}
+.siteHeader nav a,.footerNav a{min-height:44px;display:flex;align-items:center}
+.siteHeader .brand img{width:165px;height:auto}
+.siteHeader .navCta,.siteFooter .pill{background:var(--accent-gradient);color:#fff;padding:12px 18px;gap:10px}
+.innerHero{padding:100px 10vw 104px;background:#ebedf2;color:#35414b}
+.innerHero .kicker{color:#62717c;margin-bottom:26px}
+.innerHero h1{max-width:1150px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(46px,7vw,94px);font-weight:500;line-height:1.04;letter-spacing:-.055em}
+.innerLead{max-width:760px;margin:26px 0 0;color:#596773;font-size:19px;line-height:1.7}
+.editorialBody{padding:105px 10vw 120px;background:var(--paper);color:var(--ink)}
+.editorialCopy{max-width:920px;margin:0 auto 56px;font-size:19px;line-height:1.8;color:#e0e5e9}
+.editorialCopy p{margin-bottom:22px}
+.serviceGallery{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin:0 auto 100px;max-width:1320px}
+.serviceGalleryImage{position:relative;min-height:360px;overflow:hidden;border-radius:12px;background:#35404b}
+.serviceGalleryImage.image1{grid-row:span 2;min-height:740px}
+.serviceGalleryImage img,.aboutPageImage img,.portfolioImage img{object-fit:cover}
+.serviceDetails{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:10vw;align-items:start}
+.serviceDetails h2,.aboutResponsibilities h2,.companyStory h2,.contactBand h2{font-family:var(--font-montserrat),sans-serif;font-size:clamp(30px,4vw,52px);font-weight:500;line-height:1.13;letter-spacing:-.04em}
+.serviceDetails ul,.aboutResponsibilities ul{padding:0;margin:0;list-style:none;border-top:1px solid rgba(255,255,255,.25)}
+.serviceDetails li,.aboutResponsibilities li{position:relative;padding:18px 0 18px 30px;border-bottom:1px solid rgba(255,255,255,.25);font-size:16px;line-height:1.65;color:#d1d9df}
+.serviceDetails li:before,.aboutResponsibilities li:before{content:'+';position:absolute;left:0;top:17px;color:#29c6e5;font-size:19px}
+.editorialClosing{max-width:980px;margin:85px auto 0;font-size:19px;line-height:1.8;color:#dce2e7}
+.contactBand{margin:0;padding:82px 10vw;display:flex;align-items:center;justify-content:space-between;gap:48px;background:#ebedf2;color:#35414b}
+.contactBand>div{max-width:760px}.contactBand .kicker{color:#62717c}.contactBand p:not(.kicker){max-width:620px;color:#596773}
+.contactBand h2{margin-bottom:16px}
+.contactBand .pill{flex-shrink:0}
+.aboutPageBody{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
+.aboutPageImage{position:relative;min-height:580px;border-radius:12px;overflow:hidden}
+.aboutPageBody .editorialCopy{margin:0}
+.aboutResponsibilities{padding:110px 10vw;display:grid;grid-template-columns:.9fr 1.1fr;gap:9vw;background:#3b4651;color:#f7f9fa}
+.aboutResponsibilities .kicker,.companyStory .kicker{color:#83d9e8}
+.aboutResponsibilities h2{max-width:560px}
+.companyStory{padding:110px 10vw;display:grid;grid-template-columns:.85fr 1.15fr;gap:9vw;background:#ebedf2;color:#35414b}
+.companyStory>div:last-child{max-width:850px;color:#596773;font-size:17px;line-height:1.8}
+.isoNote{display:flex;gap:28px;align-items:center;margin:38px 0 0;padding-top:26px;border-top:1px solid #cbd2d8}
+.isoNote strong{font-size:28px;color:#35414b;white-space:nowrap}.isoNote span{font-size:14px;line-height:1.6}
+.portfolioPage{padding:80px 5vw 110px;background:#ebedf2;color:#35414b}
+.portfolioIntro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:0 5vw 42px;color:#596773}
+.portfolioIntro p{max-width:750px;margin:0;font-size:17px;line-height:1.7}
+.portfolioIntro span{color:#596773;font-size:14px;white-space:nowrap}
+.portfolioGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:52px 20px}
+.portfolioCard{min-width:0}
+.portfolioImage{position:relative;aspect-ratio:1.24;overflow:hidden;border-radius:9px;background:#cbd2d8}
+.portfolioImage img{transition:transform .45s ease,filter .45s ease;filter:saturate(.78)}
+.portfolioCard:hover .portfolioImage img{transform:scale(1.025);filter:saturate(1)}
+.portfolioTag{position:absolute;top:16px;right:16px;padding:8px 12px;border:1px solid rgba(255,255,255,.75);border-radius:999px;background:rgba(238,242,244,.94);color:#34434e;font-size:14px;font-weight:600}
+.portfolioCaption{display:flex;justify-content:space-between;align-items:start;gap:14px;padding-top:17px}
+.portfolioCaption h2{margin:0;font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:19px;line-height:1.35}
+.portfolioCaption span{display:flex;align-items:center;gap:6px;white-space:nowrap;color:#62717c;font-size:14px}
+.portfolioCaption svg{width:16px;height:16px}
+.contactPageGrid{padding:100px 10vw;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;background:var(--paper)}
+.contactOffice{padding:36px;border:1px solid rgba(255,255,255,.22);border-radius:10px}
+.contactOffice .kicker{color:#83d9e8}.contactOffice h2{font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:42px}
+.contactOffice>div{display:flex;gap:22px;margin-bottom:12px}.contactOffice a{min-height:44px;display:inline-flex;align-items:center;font-size:16px;text-decoration:underline;text-underline-offset:4px}
+.contactOffice>span{display:block;margin-top:15px;color:var(--muted);font-size:14px}
+.siteFooter{min-height:0;margin:0;border-radius:0;padding:70px 5vw 28px;background:#35404a;color:#f7f9fa}
+.siteFooter .footerTop{display:flex;align-items:end;justify-content:space-between;gap:32px;padding-bottom:45px}
+.siteFooter .footerTop h2{max-width:680px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(28px,4vw,52px);font-weight:500;line-height:1.1}
+.siteFooter .footerTop .kicker{color:#83d9e8}
+.siteFooter .footerNav{flex-wrap:wrap;gap:20px;margin:0 0 12px;color:#e0e5e9}
+.siteFooter .groupLinks{display:flex;flex-wrap:wrap;gap:22px;padding-bottom:26px;border-bottom:1px solid #626e78;color:#c4cdd3}
+.siteFooter .footerBottom{position:static;display:flex;justify-content:space-between;align-items:center;gap:28px;padding-top:26px;border:0;color:#c4cdd3}
+.siteFooter .footerLogo img{width:150px}
+.footerContacts{display:flex;flex-direction:column;gap:8px;font-size:14px}
+.footerBottom>p{margin:0;font-size:14px;text-align:right}
+@media(max-width:1000px){.siteHeader{gap:18px}.siteHeader nav{gap:12px;font-size:13px}.siteHeader .brand img{width:140px}.siteHeader .navCta{font-size:13px}.innerHero{padding:82px 7vw}.editorialBody,.aboutResponsibilities,.companyStory{padding-left:7vw;padding-right:7vw}.portfolioGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.contactBand{padding-left:7vw;padding-right:7vw}}
+@media(max-width:760px){.siteHeader{padding:14px 5vw;min-height:78px}.siteHeader nav{display:none}.siteHeader .brand img{width:145px}.innerHero{padding:70px 7vw 75px}.innerHero h1{font-size:clamp(42px,11vw,66px)}.innerLead{font-size:17px}.editorialBody{padding:72px 7vw 80px}.editorialCopy{font-size:17px}.serviceGallery{grid-template-columns:1fr 1fr;margin-bottom:70px}.serviceGalleryImage{min-height:240px}.serviceGalleryImage.image1{min-height:500px}.serviceDetails,.aboutResponsibilities,.companyStory,.aboutPageBody{grid-template-columns:1fr;gap:32px}.serviceDetails h2,.aboutResponsibilities h2,.companyStory h2{font-size:34px}.contactBand{padding:65px 7vw;display:block}.contactBand .pill{margin-top:24px}.aboutPageImage{min-height:400px}.aboutPageBody .editorialCopy{margin-top:0}.aboutResponsibilities,.companyStory{padding:75px 7vw}.portfolioPage{padding:55px 5vw 75px}.portfolioIntro{margin:0 2vw 32px}.portfolioCaption{flex-direction:column}.contactPageGrid{grid-template-columns:1fr;padding:60px 7vw}.siteFooter{padding:55px 6vw 24px}.siteFooter .footerTop{display:block;padding-bottom:28px}.siteFooter .footerTop .pill{margin-top:22px}.siteFooter .footerNav{gap:6px 16px}.siteFooter .footerBottom{align-items:flex-start;flex-direction:column}.footerBottom>p{text-align:left}.isoNote{align-items:flex-start;flex-direction:column;gap:10px}}
+@media(max-width:520px){.innerHero h1{font-size:42px}.serviceGallery{grid-template-columns:1fr}.serviceGalleryImage,.serviceGalleryImage.image1{grid-row:auto;min-height:300px}.portfolioGrid{grid-template-columns:1fr;gap:34px}.portfolioImage{aspect-ratio:1.12}.portfolioCaption{flex-direction:row;align-items:center}.portfolioCaption h2{font-size:17px}.portfolioCaption span{font-size:14px}.contactOffice{padding:26px}.contactOffice>div{flex-direction:column;gap:0}.siteFooter .groupLinks{flex-direction:column;gap:4px}.siteHeader .navCta{padding:11px 13px;font-size:13px}.isoNote strong{font-size:25px}}
