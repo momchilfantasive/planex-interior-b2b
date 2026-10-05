@@ -8,6 +8,7 @@ type Service = {
   intro: string[];
   pointsTitle: string;
   points: string[];
+  imageCaption: string;
   closing?: string;
   images: string[];
   projects: ServiceProject[];
@@ -47,7 +48,7 @@ export function ServicePage({ data }: { data: Service }) {
       {data.images.slice(1).map((image, index) => <div className={`serviceEssayImage essay${index + 1}`} key={image}>
         <Image src={image} alt={`${data.title} – детайл от интериорния проект ${index + 1}`} fill sizes="(max-width: 760px) 100vw, 50vw" />
       </div>)}
-      <div className="serviceEssayNote"><span>01 — 02</span><p>Материали, пропорции и детайли, подбрани според имота и начина, по който ще бъде използван.</p></div>
+      <div className="serviceEssayNote"><span>01 — 02</span><p>{data.imageCaption}</p></div>
     </section>
 
     <section className="serviceScope">
