@@ -21,5 +21,10 @@ export default function InteriorConceptPage() {
       'Ще бъдат с вас при избора на материали и уреди и ще ви консултират за техния дизайн, съчетание, технология и предимства.',
     ],
     images: ['/images/service-concept-v2.jpg', '/images/service-concept-editorial.png', '/images/project-varna.jpg'],
+    projects: [
+      { title: 'Офис, кв. Витоша', place: 'София', image: 'https://planexinterior.bg/assets/Uploads/projects/titul-ofis-sofiya__FillMaxWzc3MCw4MDBd.jpg' },
+      { title: 'Тристаен апартамент', place: 'Варна, център', image: 'https://planexinterior.bg/assets/Uploads/projects/1-v2__FillMaxWzc3MCw4MDBd.jpg' },
+      { title: 'Офис Явлена', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9125_6_7_q__FillMaxWzc3MCw4MDBd.jpg' },
+    ],
   }} />;
 }

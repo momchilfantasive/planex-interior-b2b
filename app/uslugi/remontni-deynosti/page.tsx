@@ -18,5 +18,10 @@ export default function RenovationPage() {
       'Цялостно обзавеждане, избор и изработка на мебели, текстил, аксесоари и декорация.',
     ],
     images: ['/images/service-renovation-v2.jpg', '/images/service-renovation-editorial.png', '/images/service-finishing-v2.jpg'],
+    projects: [
+      { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg' },
+      { title: 'Офис', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9116_7_8_q__FillMaxWzc3MCw4MDBd.jpg' },
+      { title: 'Апартамент', place: 'Каварна', image: 'https://planexinterior.bg/assets/Uploads/projects/IMG_1312_q__FillMaxWzc3MCw4MDBd.jpg' },
+    ],
   }} />;
 }

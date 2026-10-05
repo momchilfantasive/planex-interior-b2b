@@ -246,3 +246,63 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:1000px){.siteHeader{gap:18px}.siteHeader nav{gap:12px;font-size:13px}.siteHeader .brand img{width:140px}.siteHeader .navCta{font-size:13px}.innerHero{padding:82px 7vw}.editorialBody,.aboutResponsibilities,.companyStory{padding-left:7vw;padding-right:7vw}.portfolioGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.contactBand{padding-left:7vw;padding-right:7vw}}
 @media(max-width:760px){.siteHeader{padding:14px 5vw 8px;min-height:78px;flex-wrap:wrap;gap:8px 14px}.siteHeader nav{display:flex;order:3;flex-basis:100%;justify-content:flex-start;gap:8px 18px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.siteHeader nav::-webkit-scrollbar{display:none}.siteHeader nav a{flex:none}.siteHeader .brand img{width:145px}.innerHero{padding:70px 7vw 75px}.innerHero h1{font-size:clamp(42px,11vw,66px)}.innerLead{font-size:17px}.editorialBody{padding:72px 7vw 80px}.editorialCopy{font-size:17px}.serviceGallery{grid-template-columns:1fr 1fr;margin-bottom:70px}.serviceGalleryImage{min-height:240px}.serviceGalleryImage.image1{min-height:500px}.serviceDetails,.aboutResponsibilities,.companyStory,.aboutPageBody{grid-template-columns:1fr;gap:32px}.serviceDetails h2,.aboutResponsibilities h2,.companyStory h2{font-size:34px}.contactBand{padding:65px 7vw;display:block}.contactBand .pill{margin-top:24px}.aboutPageImage{min-height:400px}.aboutPageBody .editorialCopy{margin-top:0}.aboutResponsibilities,.companyStory{padding:75px 7vw}.portfolioPage{padding:55px 5vw 75px}.portfolioIntro{margin:0 2vw 32px}.portfolioCaption{flex-direction:column}.contactPageGrid{grid-template-columns:1fr;padding:60px 7vw}.siteFooter{padding:55px 6vw 24px}.siteFooter .footerTop{display:block;padding-bottom:28px}.siteFooter .footerTop .pill{margin-top:22px}.siteFooter .footerNav{gap:6px 16px}.siteFooter .footerBottom{align-items:flex-start;flex-direction:column}.footerBottom>p{text-align:left}.isoNote{align-items:flex-start;flex-direction:column;gap:10px}}
 @media(max-width:520px){.innerHero h1{font-size:42px}.serviceGallery{grid-template-columns:1fr}.serviceGalleryImage,.serviceGalleryImage.image1{grid-row:auto;min-height:300px}.portfolioGrid{grid-template-columns:1fr;gap:34px}.portfolioImage{aspect-ratio:1.12}.portfolioCaption{flex-direction:row;align-items:center}.portfolioCaption h2{font-size:17px}.portfolioCaption span{font-size:14px}.contactOffice{padding:26px}.contactOffice>div{flex-direction:column;gap:0}.siteFooter .groupLinks{flex-direction:column;gap:4px}.siteHeader .navCta{padding:11px 13px;font-size:13px}.isoNote strong{font-size:25px}}
+
+/* Service detail pages: architectural editorial layout */
+.servicePage{overflow:hidden}
+.serviceHero{padding:46px 0 0;background:#ebedf2;color:#35414b}
+.serviceHeroHeading{padding:0 5vw 35px}
+.serviceHeroHeading .kicker{display:flex;gap:12px;align-items:center;margin:0 0 24px;color:#65737d;letter-spacing:.09em}
+.serviceHeroHeading h1{max-width:1500px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(58px,9.2vw,148px);font-weight:500;line-height:.98;letter-spacing:-.065em;text-wrap:balance}
+.serviceHeroImage{position:relative;height:min(72vh,850px);min-height:480px;margin:0 2.2vw;overflow:hidden;border-radius:9px;background:#343e48}
+.serviceHeroImage:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(19,27,34,.36));pointer-events:none}
+.serviceHeroImage img{object-fit:cover;filter:saturate(.8)}
+.serviceHeroImageLabel{position:absolute;z-index:1;bottom:22px;left:26px;color:#fff;font-size:14px;letter-spacing:.04em}
+.serviceHeroImageLabel i{font-style:normal;color:#29c6e5;padding:0 8px}
+.serviceHeroBottom{display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:25px 5vw 38px;border-bottom:1px solid #c9d0d6}
+.serviceHeroBottom>p{max-width:700px;margin:0;color:#46545e;font-family:var(--font-montserrat),sans-serif;font-size:clamp(20px,2.4vw,32px);line-height:1.3;letter-spacing:-.025em}
+.serviceAnchor{display:inline-flex;gap:22px;align-items:center;min-height:46px;font-size:14px;font-weight:600}
+.serviceAnchor span{color:#078baa;font-size:20px}
+.serviceStatement{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;padding:130px 10vw 140px;background:#45505d;color:#f7f9fa}
+.serviceSectionLabel{display:flex;gap:14px;align-items:center;color:#c2cbd2;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
+.serviceSectionLabel>span:first-child{color:#29c6e5}
+.serviceStatementText{max-width:1080px}
+.serviceStatementText h2{margin:0 0 32px;font-family:var(--font-montserrat),sans-serif;font-size:clamp(30px,4.6vw,64px);font-weight:500;line-height:1.14;letter-spacing:-.045em}
+.serviceStatementText p{max-width:780px;margin:0 0 18px;color:#cbd3da;font-size:17px;line-height:1.8}
+.serviceImageEssay{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:minmax(260px,34vw) minmax(180px,21vw);gap:18px;padding:0 5vw 110px;background:#45505d}
+.serviceEssayImage{position:relative;overflow:hidden;border-radius:8px;background:#37434e}
+.serviceEssayImage img{object-fit:cover;filter:saturate(.78)}
+.serviceEssayImage.essay1{grid-row:span 2}
+.serviceEssayImage.essay2{grid-column:2;grid-row:1}
+.serviceEssayNote{grid-column:2;grid-row:2;align-self:end;display:flex;gap:24px;align-items:flex-start;padding:14px 0;color:#cbd3da}
+.serviceEssayNote span{flex:0 0 auto;color:#29c6e5;font-size:13px}
+.serviceEssayNote p{max-width:380px;margin:0;font-size:15px;line-height:1.65}
+.serviceScope{padding:116px 10vw 128px;background:#ebedf2;color:#35414b}
+.serviceScopeHeading{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;margin-bottom:46px}
+.serviceScopeHeading .serviceSectionLabel{color:#62717c}
+.serviceScopeHeading h2{max-width:1000px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(27px,3.4vw,46px);font-weight:500;line-height:1.2;letter-spacing:-.04em}
+.serviceScope ol{list-style:none;padding:0;margin:0 0 0 calc(48% + 7vw);border-top:1px solid #c5cdd3}
+.serviceScope li{display:grid;grid-template-columns:44px 1fr 28px;align-items:start;gap:16px;padding:20px 0;border-bottom:1px solid #c5cdd3}
+.serviceScope li>span{padding-top:3px;color:#71808b;font-size:14px}
+.serviceScope li p{margin:0;font-size:16px;line-height:1.65;color:#43515c}
+.serviceScope li b{color:#138fa9;font-size:17px;font-weight:400}
+.serviceClosing{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;padding:88px 10vw;background:#35404a;color:#f7f9fa}
+.serviceClosing .serviceSectionLabel{align-self:start}
+.serviceClosing>p:last-child{max-width:1040px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(22px,2.8vw,38px);line-height:1.4;letter-spacing:-.025em}
+.serviceProjects{padding:112px 5vw 118px;background:#ebedf2;color:#35414b}
+.serviceProjectsHeading{display:flex;justify-content:space-between;align-items:end;gap:36px;margin:0 5vw 46px}
+.serviceProjectsHeading>div{max-width:850px}
+.serviceProjectsHeading .serviceSectionLabel{margin-bottom:22px;color:#62717c}
+.serviceProjectsHeading h2{margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(34px,5vw,66px);font-weight:500;line-height:1.08;letter-spacing:-.05em}
+.serviceProjectsHeading>a{display:inline-flex;align-items:center;gap:14px;min-height:44px;white-space:nowrap;font-size:14px;font-weight:600}
+.serviceProjectsHeading>a span{color:#078baa;font-size:18px}
+.serviceProjectsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.serviceProjectCard a{display:block}
+.serviceProjectImage{position:relative;aspect-ratio:1.26;overflow:hidden;border-radius:8px;background:#cdd4d9}
+.serviceProjectImage img{object-fit:cover;filter:saturate(.8);transition:transform .45s ease,filter .45s ease}
+.serviceProjectCard a:hover .serviceProjectImage img{transform:scale(1.025);filter:saturate(1)}
+.serviceProjectCaption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 2px 0}
+.serviceProjectCaption h3{margin:0;font-family:var(--font-montserrat),sans-serif;font-size:18px;font-weight:500;line-height:1.4}
+.serviceProjectCaption span{display:inline-flex;align-items:center;gap:6px;color:#62717c;font-size:14px;white-space:nowrap}
+.serviceProjectCaption svg{width:15px;height:15px}
+@media(max-width:900px){.serviceHeroHeading h1{font-size:clamp(56px,10vw,104px)}.serviceStatement,.serviceScopeHeading,.serviceClosing{grid-template-columns:.36fr 1.64fr;gap:5vw}.serviceScope ol{margin-left:calc(36% + 5vw)}.serviceImageEssay{grid-template-rows:minmax(240px,38vw) minmax(170px,24vw)}.serviceProjectsHeading{margin:0 2vw 36px}}
+@media(max-width:700px){.serviceHero{padding-top:34px}.serviceHeroHeading{padding:0 6vw 26px}.serviceHeroHeading .kicker{margin-bottom:18px}.serviceHeroHeading h1{font-size:clamp(46px,11vw,78px);line-height:1.02}.serviceHeroImage{height:62vh;min-height:380px;margin:0 3vw;border-radius:6px}.serviceHeroBottom{grid-template-columns:1fr;gap:14px;padding:20px 6vw 26px}.serviceHeroBottom>p{font-size:23px}.serviceStatement{grid-template-columns:1fr;gap:28px;padding:78px 7vw 85px}.serviceStatementText h2{font-size:clamp(28px,7.5vw,42px)}.serviceStatementText p{font-size:16px}.serviceImageEssay{grid-template-columns:1fr 1fr;grid-template-rows:54vw auto;gap:12px;padding:0 4vw 75px}.serviceEssayImage.essay1{grid-column:1/-1;grid-row:1;min-height:350px}.serviceEssayImage.essay2{grid-column:1;grid-row:2;min-height:220px}.serviceEssayNote{grid-column:2;grid-row:2;display:block;padding:4px 3px}.serviceEssayNote p{margin-top:12px;font-size:14px}.serviceScope{padding:75px 7vw 85px}.serviceScopeHeading{grid-template-columns:1fr;gap:22px;margin-bottom:28px}.serviceScopeHeading h2{font-size:32px}.serviceScope ol{margin-left:0}.serviceScope li{grid-template-columns:35px 1fr 20px;gap:10px;padding:16px 0}.serviceScope li p{font-size:15px}.serviceClosing{grid-template-columns:1fr;gap:25px;padding:65px 7vw}.serviceClosing>p:last-child{font-size:25px}.serviceProjects{padding:75px 5vw 80px}.serviceProjectsHeading{display:block;margin:0 2vw 28px}.serviceProjectsHeading h2{font-size:38px}.serviceProjectsHeading>a{margin-top:14px}.serviceProjectsGrid{grid-template-columns:1fr;gap:32px}.serviceProjectImage{aspect-ratio:1.25}.serviceProjectCaption h3{font-size:17px}}
