@@ -9,6 +9,7 @@ export default function InteriorConceptPage() {
       'Интериорният дизайн е съчетание от удобство, функционално разпределение и стил. Цветовете и светлината могат да създават определена атмосфера, да стимулират работния процес, да подтикват към концентрация или почивка.',
       'Разбирането за уют, красота и комфорт е специфично за всеки човек и неговото чувство за хармония, затова обзавеждането на всеки имот е предизвикателство.',
     ],
+    scopeTitle: 'От разпределението до материалите',
     pointsTitle: 'Специалистите на „Планекс Инвест“ ще преминат заедно с вас всички основни стъпки при създаването на добро интериорно решение:',
     imageCaption: 'Цветове, светлина и материали се съчетават според функциите на пространството и начина ви на живот.',
     points: [
@@ -21,7 +22,7 @@ export default function InteriorConceptPage() {
       'Ще ви консултират при проектирането на удобна и практична кухня с необходимите пространства, уреди и инсталации.',
       'Ще бъдат с вас при избора на материали и уреди и ще ви консултират за техния дизайн, съчетание, технология и предимства.',
     ],
-    images: ['/images/service-concept-v2.jpg', '/images/service-concept-editorial.png', '/images/project-varna.jpg'],
+    images: ['/images/service-concept-editorial.png', '/images/project-varna.jpg', '/images/project-office.jpg'],
     projects: [
       { title: 'Офис, кв. Витоша', place: 'София', image: 'https://planexinterior.bg/assets/Uploads/projects/titul-ofis-sofiya__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Тристаен апартамент', place: 'Варна, център', image: 'https://planexinterior.bg/assets/Uploads/projects/1-v2__FillMaxWzc3MCw4MDBd.jpg' },

@@ -247,62 +247,124 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:760px){.siteHeader{padding:14px 5vw 8px;min-height:78px;flex-wrap:wrap;gap:8px 14px}.siteHeader nav{display:flex;order:3;flex-basis:100%;justify-content:flex-start;gap:8px 18px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.siteHeader nav::-webkit-scrollbar{display:none}.siteHeader nav a{flex:none}.siteHeader .brand img{width:145px}.innerHero{padding:70px 7vw 75px}.innerHero h1{font-size:clamp(42px,11vw,66px)}.innerLead{font-size:17px}.editorialBody{padding:72px 7vw 80px}.editorialCopy{font-size:17px}.serviceGallery{grid-template-columns:1fr 1fr;margin-bottom:70px}.serviceGalleryImage{min-height:240px}.serviceGalleryImage.image1{min-height:500px}.serviceDetails,.aboutResponsibilities,.companyStory,.aboutPageBody{grid-template-columns:1fr;gap:32px}.serviceDetails h2,.aboutResponsibilities h2,.companyStory h2{font-size:34px}.contactBand{padding:65px 7vw;display:block}.contactBand .pill{margin-top:24px}.aboutPageImage{min-height:400px}.aboutPageBody .editorialCopy{margin-top:0}.aboutResponsibilities,.companyStory{padding:75px 7vw}.portfolioPage{padding:55px 5vw 75px}.portfolioIntro{margin:0 2vw 32px}.portfolioCaption{flex-direction:column}.contactPageGrid{grid-template-columns:1fr;padding:60px 7vw}.siteFooter{padding:55px 6vw 24px}.siteFooter .footerTop{display:block;padding-bottom:28px}.siteFooter .footerTop .pill{margin-top:22px}.siteFooter .footerNav{gap:6px 16px}.siteFooter .footerBottom{align-items:flex-start;flex-direction:column}.footerBottom>p{text-align:left}.isoNote{align-items:flex-start;flex-direction:column;gap:10px}}
 @media(max-width:520px){.innerHero h1{font-size:42px}.serviceGallery{grid-template-columns:1fr}.serviceGalleryImage,.serviceGalleryImage.image1{grid-row:auto;min-height:300px}.portfolioGrid{grid-template-columns:1fr;gap:34px}.portfolioImage{aspect-ratio:1.12}.portfolioCaption{flex-direction:row;align-items:center}.portfolioCaption h2{font-size:17px}.portfolioCaption span{font-size:14px}.contactOffice{padding:26px}.contactOffice>div{flex-direction:column;gap:0}.siteFooter .groupLinks{flex-direction:column;gap:4px}.siteHeader .navCta{padding:11px 13px;font-size:13px}.isoNote strong{font-size:25px}}
 
-/* Service detail pages: architectural editorial layout */
-.servicePage{overflow:hidden}
-.serviceHero{padding:46px 0 0;background:#ebedf2;color:#35414b}
-.serviceHeroHeading{padding:0 5vw 35px}
-.serviceHeroHeading .kicker{display:flex;gap:12px;align-items:center;margin:0 0 24px;color:#65737d;letter-spacing:.09em}
-.serviceHeroHeading h1{max-width:1500px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(58px,9.2vw,148px);font-weight:500;line-height:.98;letter-spacing:-.065em;text-wrap:balance}
-.serviceHeroImage{position:relative;height:min(72vh,850px);min-height:480px;margin:0 2.2vw;overflow:hidden;border-radius:9px;background:#343e48}
-.serviceHeroImage:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(19,27,34,.36));pointer-events:none}
-.serviceHeroImage img{object-fit:cover;filter:saturate(.8)}
-.serviceHeroImageLabel{position:absolute;z-index:1;bottom:22px;left:26px;color:#fff;font-size:14px;letter-spacing:.04em}
-.serviceHeroImageLabel i{font-style:normal;color:#29c6e5;padding:0 8px}
-.serviceHeroBottom{display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:25px 5vw 38px;border-bottom:1px solid #c9d0d6}
-.serviceHeroBottom>p{max-width:700px;margin:0;color:#46545e;font-family:var(--font-montserrat),sans-serif;font-size:clamp(20px,2.4vw,32px);line-height:1.3;letter-spacing:-.025em}
-.serviceAnchor{display:inline-flex;gap:22px;align-items:center;min-height:46px;font-size:14px;font-weight:600}
-.serviceAnchor span{color:#078baa;font-size:20px}
-.serviceStatement{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;padding:130px 10vw 140px;background:#45505d;color:#f7f9fa}
-.serviceSectionLabel{display:flex;gap:14px;align-items:center;color:#c2cbd2;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
-.serviceSectionLabel>span:first-child{color:#29c6e5}
-.serviceStatementText{max-width:1080px}
-.serviceStatementText h2{margin:0 0 32px;font-family:var(--font-montserrat),sans-serif;font-size:clamp(30px,4.6vw,64px);font-weight:500;line-height:1.14;letter-spacing:-.045em}
-.serviceStatementText p{max-width:780px;margin:0 0 18px;color:#cbd3da;font-size:17px;line-height:1.8}
-.serviceImageEssay{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:minmax(260px,34vw) minmax(180px,21vw);gap:18px;padding:0 5vw 110px;background:#45505d}
-.serviceEssayImage{position:relative;overflow:hidden;border-radius:8px;background:#37434e}
-.serviceEssayImage img{object-fit:cover;filter:saturate(.78)}
-.serviceEssayImage.essay1{grid-row:span 2}
-.serviceEssayImage.essay2{grid-column:2;grid-row:1}
-.serviceEssayNote{grid-column:2;grid-row:2;align-self:end;display:flex;gap:24px;align-items:flex-start;padding:14px 0;color:#cbd3da}
-.serviceEssayNote span{flex:0 0 auto;color:#29c6e5;font-size:13px}
-.serviceEssayNote p{max-width:380px;margin:0;font-size:15px;line-height:1.65}
-.serviceScope{padding:116px 10vw 128px;background:#ebedf2;color:#35414b}
-.serviceScopeHeading{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;margin-bottom:46px}
-.serviceScopeHeading .serviceSectionLabel{color:#62717c}
-.serviceScopeHeading h2{max-width:1000px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(27px,3.4vw,46px);font-weight:500;line-height:1.2;letter-spacing:-.04em}
-.serviceScope ol{list-style:none;padding:0;margin:0 0 0 calc(48% + 7vw);border-top:1px solid #c5cdd3}
-.serviceScope li{display:grid;grid-template-columns:44px 1fr 28px;align-items:start;gap:16px;padding:20px 0;border-bottom:1px solid #c5cdd3}
-.serviceScope li>span{padding-top:3px;color:#71808b;font-size:14px}
-.serviceScope li p{margin:0;font-size:16px;line-height:1.65;color:#43515c}
-.serviceScope li b{color:#138fa9;font-size:17px;font-weight:400}
-.serviceClosing{display:grid;grid-template-columns:.48fr 1.52fr;gap:7vw;padding:88px 10vw;background:#35404a;color:#f7f9fa}
-.serviceClosing .serviceSectionLabel{align-self:start}
-.serviceClosing>p:last-child{max-width:1040px;margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(22px,2.8vw,38px);line-height:1.4;letter-spacing:-.025em}
-.serviceProjects{padding:112px 5vw 118px;background:#ebedf2;color:#35414b}
-.serviceProjectsHeading{display:flex;justify-content:space-between;align-items:end;gap:36px;margin:0 5vw 46px}
-.serviceProjectsHeading>div{max-width:850px}
-.serviceProjectsHeading .serviceSectionLabel{margin-bottom:22px;color:#62717c}
-.serviceProjectsHeading h2{margin:0;font-family:var(--font-montserrat),sans-serif;font-size:clamp(34px,5vw,66px);font-weight:500;line-height:1.08;letter-spacing:-.05em}
-.serviceProjectsHeading>a{display:inline-flex;align-items:center;gap:14px;min-height:44px;white-space:nowrap;font-size:14px;font-weight:600}
-.serviceProjectsHeading>a span{color:#078baa;font-size:18px}
-.serviceProjectsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.serviceProjectCard a{display:block}
-.serviceProjectImage{position:relative;aspect-ratio:1.26;overflow:hidden;border-radius:8px;background:#cdd4d9}
-.serviceProjectImage img{object-fit:cover;filter:saturate(.8);transition:transform .45s ease,filter .45s ease}
-.serviceProjectCard a:hover .serviceProjectImage img{transform:scale(1.025);filter:saturate(1)}
-.serviceProjectCaption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 2px 0}
-.serviceProjectCaption h3{margin:0;font-family:var(--font-montserrat),sans-serif;font-size:18px;font-weight:500;line-height:1.4}
-.serviceProjectCaption span{display:inline-flex;align-items:center;gap:6px;color:#62717c;font-size:14px;white-space:nowrap}
-.serviceProjectCaption svg{width:15px;height:15px}
-@media(max-width:900px){.serviceHeroHeading h1{font-size:clamp(56px,10vw,104px)}.serviceStatement,.serviceScopeHeading,.serviceClosing{grid-template-columns:.36fr 1.64fr;gap:5vw}.serviceScope ol{margin-left:calc(36% + 5vw)}.serviceImageEssay{grid-template-rows:minmax(240px,38vw) minmax(170px,24vw)}.serviceProjectsHeading{margin:0 2vw 36px}}
-@media(max-width:700px){.serviceHero{padding-top:34px}.serviceHeroHeading{padding:0 6vw 26px}.serviceHeroHeading .kicker{margin-bottom:18px}.serviceHeroHeading h1{font-size:clamp(46px,11vw,78px);line-height:1.02}.serviceHeroImage{height:62vh;min-height:380px;margin:0 3vw;border-radius:6px}.serviceHeroBottom{grid-template-columns:1fr;gap:14px;padding:20px 6vw 26px}.serviceHeroBottom>p{font-size:23px}.serviceStatement{grid-template-columns:1fr;gap:28px;padding:78px 7vw 85px}.serviceStatementText h2{font-size:clamp(28px,7.5vw,42px)}.serviceStatementText p{font-size:16px}.serviceImageEssay{grid-template-columns:1fr 1fr;grid-template-rows:54vw auto;gap:12px;padding:0 4vw 75px}.serviceEssayImage.essay1{grid-column:1/-1;grid-row:1;min-height:350px}.serviceEssayImage.essay2{grid-column:1;grid-row:2;min-height:220px}.serviceEssayNote{grid-column:2;grid-row:2;display:block;padding:4px 3px}.serviceEssayNote p{margin-top:12px;font-size:14px}.serviceScope{padding:75px 7vw 85px}.serviceScopeHeading{grid-template-columns:1fr;gap:22px;margin-bottom:28px}.serviceScopeHeading h2{font-size:32px}.serviceScope ol{margin-left:0}.serviceScope li{grid-template-columns:35px 1fr 20px;gap:10px;padding:16px 0}.serviceScope li p{font-size:15px}.serviceClosing{grid-template-columns:1fr;gap:25px;padding:65px 7vw}.serviceClosing>p:last-child{font-size:25px}.serviceProjects{padding:75px 5vw 80px}.serviceProjectsHeading{display:block;margin:0 2vw 28px}.serviceProjectsHeading h2{font-size:38px}.serviceProjectsHeading>a{margin-top:14px}.serviceProjectsGrid{grid-template-columns:1fr;gap:32px}.serviceProjectImage{aspect-ratio:1.25}.serviceProjectCaption h3{font-size:17px}}
+/* Service pages: centered typography, generous images and a readable content width. */
+.servicePage { overflow: clip; }
+.servicePage h1, .servicePage h2 { font-family: var(--font-montserrat), sans-serif; font-weight: 500; text-wrap: balance; }
+.serviceHero { padding: 64px 0 0; background: #ebedf2; color: #35414b; }
+.serviceHeroHeading { max-width: 1140px; margin: 0 auto; padding: 0 5vw 44px; text-align: center; }
+.serviceHeroHeading h1 { margin: 0; font-size: clamp(48px, 6.6vw, 92px); line-height: 1.05; letter-spacing: -.055em; }
+.serviceHeroHeading > p { max-width: 680px; margin: 22px auto 0; font-size: 19px; line-height: 1.5; color: #586572; text-wrap: balance; }
+.serviceHeroImage { position: relative; height: min(64vh, 730px); min-height: 440px; margin: 0 3vw; overflow: hidden; border-radius: 12px; background: #35414b; }
+.serviceImageLayer { position: absolute; inset: -7% 0; }
+.serviceImageLayer img { object-fit: cover; filter: saturate(.8); }
+.serviceStatement { padding: 104px 6vw 76px; background: #45505d; color: #f7f9fa; }
+.serviceStatementText { max-width: 860px; margin: 0 auto; text-align: center; }
+.serviceStatementText h2 { margin: 0 auto 30px; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.22; letter-spacing: -.04em; }
+.serviceBodyCopy { max-width: 760px; margin: 0 auto; }
+.serviceBodyCopy p { margin: 0 0 20px; color: #dce2e8; font-size: 18px; line-height: 1.75; }
+.serviceBodyCopy p:last-child { margin-bottom: 0; }
+.serviceImageEssay { padding: 0 5vw 86px; background: #45505d; }
+.serviceEssayGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.serviceEssayImage { position: relative; aspect-ratio: 1.08; overflow: hidden; border-radius: 10px; background: #35414b; }
+.serviceEssayNote { max-width: 640px; margin: 26px auto 0; color: #d0d8df; text-align: center; font-size: 16px; line-height: 1.65; }
+.serviceScope { padding: 96px 6vw 100px; background: #ebedf2; color: #35414b; }
+.serviceScopeHeading { max-width: 880px; margin: 0 auto 48px; text-align: center; }
+.serviceScopeHeading h2, .serviceClosing h2, .serviceProjectsHeading h2 { margin: 0 0 22px; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.18; letter-spacing: -.04em; }
+.serviceScopeHeading p { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.65; color: #596773; }
+.serviceScope ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; max-width: 1080px; padding: 0; margin: 0 auto; list-style: none; }
+.serviceScope li { display: grid; grid-template-columns: 34px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid #c6cdd6; }
+.serviceScope li > span { padding-top: 3px; color: #64717e; font-size: 14px; font-variant-numeric: tabular-nums; }
+.serviceScope li p { margin: 0; font-size: 17px; line-height: 1.7; color: #43515c; }
+.serviceClosing { padding: 90px 6vw; text-align: center; background: #45505d; color: #f7f9fa; }
+.serviceClosing h2 { max-width: 850px; margin-left: auto; margin-right: auto; }
+.serviceClosing > p { max-width: 800px; margin: 0 auto; color: #dce2e8; font-size: 18px; line-height: 1.75; }
+.serviceProjects { padding: 96px 5vw 94px; background: #ebedf2; color: #35414b; }
+.serviceProjectsHeading { max-width: 850px; margin: 0 auto 44px; text-align: center; }
+.serviceProjectsHeading p { margin: 0; color: #596773; font-size: 18px; line-height: 1.6; }
+.serviceProjectsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.serviceProjectCard a { display: block; }
+.serviceProjectImage { position: relative; aspect-ratio: 1.18; overflow: hidden; border-radius: 10px; background: #cdd4d9; }
+.serviceProjectImage img { transition: filter .35s ease; }
+.serviceProjectCard a:hover img { filter: saturate(1); }
+.serviceProjectCaption { display: flex; flex-direction: column; gap: 7px; padding: 18px 2px 0; }
+.serviceProjectCaption h3 { margin: 0; font-family: var(--font-montserrat), sans-serif; font-size: 18px; font-weight: 500; line-height: 1.4; }
+.serviceProjectCaption span { display: inline-flex; align-items: center; gap: 6px; color: #62717c; font-size: 14px; }
+.serviceProjectCaption svg { width: 16px; height: 16px; }
+.servicePortfolioLink { display: flex; align-items: center; gap: 14px; width: max-content; max-width: 100%; margin: 38px auto 0; padding: 10px 0; border-bottom: 1px solid #9ba8b2; font-size: 15px; font-weight: 500; }
+.servicePortfolioLink span { font-size: 20px; color: #087c95; }
+.servicePage .contactBand { display: flex; flex-direction: column; gap: 28px; padding: 84px 6vw; text-align: center; background: #45505d; color: #f7f9fa; }
+.servicePage .contactBand .kicker { display: none; }
+.servicePage .contactBand h2 { margin-bottom: 20px; font-size: clamp(32px, 3.8vw, 48px); line-height: 1.18; letter-spacing: -.04em; }
+.servicePage .contactBand p { margin: 0 auto; color: #dce2e8; font-size: 18px; line-height: 1.65; }
+.servicePage .contactBand .pill { margin-top: 0; padding: 14px 22px; }
+.servicePage .siteFooter { padding-top: 36px; }
+
+/* A single, accessible mobile menu replaces the clipped horizontal navigation. */
+.siteHeader .ctaShort, .mobileNavigation { display: none; }
+.siteHeader .navCta { flex-shrink: 0; text-align: center; }
+.siteHeader .navCta span { color: #fff; margin: 0; font-size: 14px; }
+.siteHeader nav { font-size: 14px; }
+.siteHeader a:focus-visible, .mobileNavigation summary:focus-visible, .servicePage a:focus-visible { outline: 2px solid #29c6e5; outline-offset: 5px; border-radius: 4px; }
+html.lenis, html.lenis body { scroll-behavior: auto; }
+@media (max-width: 1100px) {
+  .siteHeader { flex-wrap: nowrap; padding: 14px 5vw; gap: 14px; min-height: 80px; }
+  .siteHeader .desktopNavigation { display: none; }
+  .siteHeader .navCta { margin-left: auto; }
+  .siteHeader .brand img { width: 145px; }
+  .mobileNavigation { display: block; }
+  .mobileNavigation summary { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #6d7884; border-radius: 50%; cursor: pointer; list-style: none; }
+  .mobileNavigation summary::-webkit-details-marker { display: none; }
+  .mobileNavigation summary svg { width: 23px; height: 23px; }
+  .siteHeader .mobileNavigation nav { position: absolute; z-index: 10; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 14px 5vw 24px; background: #3b4651; border-bottom: 1px solid #697580; white-space: normal; overflow: visible; box-shadow: 0 16px 28px #19212b26; }
+  .mobileNavigation:not([open]) nav { display: none; }
+  .mobileNavigation[open] summary { background: #596573; }
+  .siteHeader .mobileNavigation nav a { padding: 11px 2px; min-height: 48px; border-bottom: 1px solid #ffffff18; }
+}
+@media (max-width: 900px) {
+  .serviceHeroHeading h1 { font-size: clamp(44px, 7.4vw, 72px); }
+  .serviceProjectsGrid { gap: 18px; }
+  .serviceScope ol { gap: 0 30px; }
+}
+@media (max-width: 700px) {
+  .serviceHero { padding-top: 48px; }
+  .serviceHeroHeading { padding: 0 6vw 32px; }
+  .serviceHeroHeading h1 { font-size: clamp(40px, 9.8vw, 64px); line-height: 1.08; }
+  .serviceHeroHeading > p { font-size: 17px; margin-top: 18px; }
+  .serviceHeroImage { height: 54svh; min-height: 330px; margin: 0 3vw; border-radius: 8px; }
+  .serviceStatement { padding: 68px 7vw 44px; }
+  .serviceStatementText h2 { font-size: 30px; line-height: 1.25; margin-bottom: 24px; }
+  .serviceBodyCopy p { font-size: 16px; line-height: 1.75; }
+  .serviceImageEssay { padding: 0 5vw 58px; }
+  .serviceEssayGrid { grid-template-columns: 1fr; gap: 16px; }
+  .serviceEssayImage { aspect-ratio: 1.16; border-radius: 8px; }
+  .serviceEssayNote { font-size: 15px; margin-top: 22px; }
+  .serviceScope { padding: 65px 7vw; }
+  .serviceScopeHeading { margin-bottom: 30px; }
+  .serviceScopeHeading h2, .serviceClosing h2, .serviceProjectsHeading h2 { font-size: 32px; }
+  .serviceScopeHeading p { font-size: 16px; }
+  .serviceScope ol { grid-template-columns: 1fr; }
+  .serviceScope li { padding: 22px 0; grid-template-columns: 28px 1fr; gap: 14px; }
+  .serviceScope li p { font-size: 16px; }
+  .serviceClosing { padding: 65px 7vw; }
+  .serviceClosing > p { font-size: 16px; }
+  .serviceProjects { padding: 65px 5vw; }
+  .serviceProjectsHeading { margin-bottom: 30px; padding: 0 2vw; }
+  .serviceProjectsHeading p { font-size: 16px; }
+  .serviceProjectsGrid { grid-template-columns: 1fr; gap: 32px; }
+  .serviceProjectImage { aspect-ratio: 1.22; }
+  .servicePage .contactBand { padding: 65px 7vw; gap: 25px; }
+  .servicePage .contactBand h2 { font-size: 32px; }
+  .servicePage .contactBand p { font-size: 16px; }
+}
+@media (max-width: 520px) {
+  .siteHeader { padding: 12px 4vw; gap: 10px; }
+  .siteHeader .brand img { width: 125px; }
+  .siteHeader .navCta { padding: 11px 16px; min-height: 44px; font-size: 14px; }
+  .siteHeader .ctaFull { display: none; }
+  .siteHeader .ctaShort { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; }
+  .serviceProjectImage img { transition: none; }
+}

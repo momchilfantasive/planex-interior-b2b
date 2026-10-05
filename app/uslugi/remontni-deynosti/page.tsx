@@ -9,6 +9,7 @@ export default function RenovationPage() {
       '„Планекс Инвест“ предлага специализирана услуга по цялостен или частичен ремонт на жилища и офиси. Ако имотът ви се нуждае от ремонт, обновяване или освежаване, можете да се обърнете към нашите специалисти по довършителни работи.',
       'Имаме 30 години опит в сферата на строителството, познаваме в детайли технологичните процеси и спецификите на материалите, както и техните производители и доставчици. Работим с доказани майстори във всички етапи на строително-монтажните дейности, довършителните работи и обзавеждането.',
     ],
+    scopeTitle: 'Ремонт според нуждите на имота',
     pointsTitle: 'Специалистите на „Планекс Инвест“ ще ви съдействат за:',
     imageCaption: 'От подмяната на инсталациите до финалното обзавеждане, обхватът се определя според състоянието на имота.',
     points: [
@@ -18,7 +19,7 @@ export default function RenovationPage() {
       'Ремонт на кухня: цялостно проектиране, реализация и оборудване.',
       'Цялостно обзавеждане, избор и изработка на мебели, текстил, аксесоари и декорация.',
     ],
-    images: ['/images/service-renovation-v2.jpg', '/images/service-renovation-editorial.png', '/images/service-finishing-v2.jpg'],
+    images: ['/images/service-renovation-editorial.png', '/images/project-briz.jpg', '/images/office-yavlena.jpg'],
     projects: [
       { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Офис', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9116_7_8_q__FillMaxWzc3MCw4MDBd.jpg' },

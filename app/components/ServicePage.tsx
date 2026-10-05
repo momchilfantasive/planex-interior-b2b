@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ContactBand, SiteFooter, SiteHeader } from './SiteChrome';
 
 type ServiceProject = { title: string; place: string; image: string };
@@ -6,6 +7,7 @@ type Service = {
   title: string;
   subtitle: string;
   intro: string[];
+  scopeTitle: string;
   pointsTitle: string;
   points: string[];
   imageCaption: string;
@@ -18,57 +20,63 @@ function Pin() {
   return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>;
 }
 
+function ServiceImage({ src, alt, hero = false }: { src: string; alt: string; hero?: boolean }) {
+  return <div className={hero ? 'serviceHeroImage' : 'serviceEssayImage'} data-parallax>
+    <div className="serviceImageLayer" data-parallax-layer>
+      <Image src={src} alt={alt} fill priority={hero} sizes={hero ? '100vw' : '(max-width: 700px) 100vw, 50vw'} />
+    </div>
+  </div>;
+}
+
 export function ServicePage({ data }: { data: Service }) {
+  const introSentences = data.intro[0].split(/(?<=[.!?])\s+/);
+  const statementTitle = introSentences[0];
+  const statementBody = [introSentences.slice(1).join(' '), ...data.intro.slice(1)].filter(Boolean);
+
   return <main className="innerPage servicePage">
     <SiteHeader />
-    <section className="serviceHero">
+    <section className="serviceHero" aria-labelledby="service-title">
       <div className="serviceHeroHeading">
-        <p className="kicker"><span>Услуги</span><span aria-hidden="true">/</span><span>Интериор и реализация</span></p>
-        <h1>{data.title}</h1>
+        <h1 id="service-title">{data.title}</h1>
+        <p data-reveal>{data.subtitle}</p>
       </div>
-      <div className="serviceHeroImage">
-        <Image src={data.images[0]} alt={`${data.title} – реализирано пространство`} fill priority sizes="100vw" />
-        <span className="serviceHeroImageLabel">Планекс Инвест <i aria-hidden="true">·</i> Интериор</span>
-      </div>
-      <div className="serviceHeroBottom">
-        <p>{data.subtitle}</p>
-        <a className="serviceAnchor" href="#service-overview">Разгледайте услугата <span aria-hidden="true">↓</span></a>
-      </div>
+      <ServiceImage src={data.images[0]} alt={data.title} hero />
     </section>
 
-    <section className="serviceStatement" id="service-overview">
-      <div className="serviceSectionLabel"><span>01</span><span>Нашият подход</span></div>
+    <section className="serviceStatement" id="service-overview" aria-labelledby="service-statement-title">
       <div className="serviceStatementText">
-        <h2>{data.intro[0]}</h2>
-        {data.intro.slice(1).map(text => <p key={text}>{text}</p>)}
+        <h2 id="service-statement-title">{statementTitle}</h2>
+        <div className="serviceBodyCopy">{statementBody.map(text => <p key={text} data-reveal>{text}</p>)}</div>
       </div>
     </section>
 
-    <section className="serviceImageEssay" aria-label={`Детайли за ${data.title}`}>
-      {data.images.slice(1).map((image, index) => <div className={`serviceEssayImage essay${index + 1}`} key={image}>
-        <Image src={image} alt={`${data.title} – детайл от интериорния проект ${index + 1}`} fill sizes="(max-width: 760px) 100vw, 50vw" />
-      </div>)}
-      <div className="serviceEssayNote"><span>01 — 02</span><p>{data.imageCaption}</p></div>
+    <section className="serviceImageEssay" aria-label={`Снимки за ${data.title}`}>
+      <div className="serviceEssayGrid">{data.images.slice(1).map((image, index) => <ServiceImage src={image} alt={`${data.title}, детайл ${index + 1}`} key={image} />)}</div>
+      <p className="serviceEssayNote" data-reveal>{data.imageCaption}</p>
     </section>
 
-    <section className="serviceScope">
-      <div className="serviceScopeHeading"><div className="serviceSectionLabel"><span>02</span><span>Обхват на услугата</span></div><h2>{data.pointsTitle}</h2></div>
-      <ol>{data.points.map((point, index) => <li key={point}><span>{String(index + 1).padStart(2, '0')}</span><p>{point}</p><b aria-hidden="true">↗</b></li>)}</ol>
+    <section className="serviceScope" aria-labelledby="service-scope-title">
+      <div className="serviceScopeHeading">
+        <h2 id="service-scope-title">{data.scopeTitle}</h2>
+        <p data-reveal>{data.pointsTitle}</p>
+      </div>
+      <ol>{data.points.map((point, index) => <li key={point} data-reveal><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><p>{point}</p></li>)}</ol>
     </section>
 
-    {data.closing && <section className="serviceClosing"><p className="serviceSectionLabel"><span>03</span><span>Гъвкав обхват</span></p><p>{data.closing}</p></section>}
+    {data.closing && <section className="serviceClosing" aria-labelledby="service-closing-title"><h2 id="service-closing-title">Изпълнение по ваш проект</h2><p data-reveal>{data.closing}</p></section>}
 
-    <section className="serviceProjects">
-      <div className="serviceProjectsHeading"><div><div className="serviceSectionLabel"><span>{data.closing ? '04' : '03'}</span><span>Избрани реализации</span></div><h2>Проекти от нашето портфолио</h2></div><a href="/portfolio/">Всички проекти <span aria-hidden="true">↗</span></a></div>
+    <section className="serviceProjects" aria-labelledby="service-projects-title">
+      <div className="serviceProjectsHeading"><h2 id="service-projects-title">Реализирани проекти</h2><p data-reveal>Жилищни и бизнес пространства от нашето портфолио.</p></div>
       <div className="serviceProjectsGrid">{data.projects.map(project => <article className="serviceProjectCard" key={project.title + project.place}>
-        <a href="/portfolio/" aria-label={`Вижте проекта ${project.title}`}>
-          <div className="serviceProjectImage"><Image src={project.image} alt={`${project.title}, ${project.place}`} fill sizes="(max-width: 760px) 100vw, 33vw" /></div>
+        <Link href="/portfolio/" aria-label={`Разгледайте портфолиото: ${project.title}`}>
+          <div className="serviceProjectImage" data-parallax><div className="serviceImageLayer" data-parallax-layer><Image src={project.image} alt={`${project.title}, ${project.place}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div></div>
           <div className="serviceProjectCaption"><h3>{project.title}</h3><span><Pin />{project.place}</span></div>
-        </a>
+        </Link>
       </article>)}</div>
+      <Link className="servicePortfolioLink" href="/portfolio/">Разгледайте всички проекти <span aria-hidden="true">↗</span></Link>
     </section>
 
     <ContactBand />
-    <SiteFooter />
+    <SiteFooter compact />
   </main>;
 }

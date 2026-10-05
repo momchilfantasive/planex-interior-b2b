@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { SiteMotion } from './components/SiteMotion';
+import 'lenis/dist/lenis.css';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -13,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bg">
-      <body>{children}</body>
+      <body>{children}<SiteMotion /></body>
     </html>
   );
 }
