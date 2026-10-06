@@ -2,12 +2,24 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
+import { A11y, Keyboard } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
-type PortfolioProject = {
+export type PortfolioImage = {
+  src: string;
+  alt?: string;
+};
+
+export type PortfolioProject = {
+  id?: string;
   title: string;
   place: string;
   kind: string;
   image: string;
+  alt?: string;
+  gallery?: PortfolioImage[];
 };
 
 type PortfolioGalleryProps = {
@@ -21,33 +33,57 @@ function LocationPin() {
   </svg>;
 }
 
+function getProjectSlides(project: PortfolioProject): PortfolioImage[] {
+  const main: PortfolioImage = { src: project.image, alt: project.alt };
+  const rest = (project.gallery ?? []).filter(image => image.src && image.src !== main.src);
+  return [main, ...rest];
+}
+
 export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [slideIndex, setSlideIndex] = useState(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const activeProject = activeIndex === null ? null : projects[activeIndex];
+  const slides = activeProject ? getProjectSlides(activeProject) : [];
+  const canSwipe = slides.length > 1;
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (activeIndex !== null && dialog && !dialog.open) {
       dialog.showModal();
       closeButtonRef.current?.focus();
+      requestAnimationFrame(() => swiperRef.current?.update());
     } else if (activeIndex === null && dialog?.open) {
       dialog.close();
     }
   }, [activeIndex]);
 
-  function moveProject(direction: -1 | 1) {
-    setActiveIndex(index => index === null ? null : (index + direction + projects.length) % projects.length);
+  function openProject(index: number) {
+    setSlideIndex(0);
+    setActiveIndex(index);
+  }
+
+  function closeProject() {
+    setActiveIndex(null);
+    setSlideIndex(0);
+    swiperRef.current = null;
+  }
+
+  function moveSlide(direction: -1 | 1) {
+    if (!canSwipe) return;
+    if (direction < 0) swiperRef.current?.slidePrev();
+    else swiperRef.current?.slideNext();
   }
 
   return <>
     <div className="portfolioGrid">
       {projects.map((project, index) => <button
         className="portfolioCard"
-        key={`${project.title}-${project.place}-${index}`}
+        key={project.id ?? `${project.title}-${project.place}-${index}`}
         type="button"
-        onClick={() => setActiveIndex(index)}
+        onClick={() => openProject(index)}
         aria-label={`Отворете ${project.kind}: ${project.title}, ${project.place}`}
       >
         <span className="portfolioImage">
@@ -64,14 +100,14 @@ export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
     <dialog
       className="portfolioLightbox"
       ref={dialogRef}
-      aria-label="Галерия с проекти"
-      onClose={() => setActiveIndex(null)}
+      aria-label={activeProject ? `Снимки от ${activeProject.title}` : 'Галерия с проекти'}
+      onClose={() => closeProject()}
       onClick={event => {
         const dialog = event.currentTarget;
         const content = dialog.querySelector('.portfolioLightboxContent');
         const stage = dialog.querySelector('.portfolioLightboxStage');
         if (event.target === dialog || event.target === content || event.target === stage) {
-          setActiveIndex(null);
+          closeProject();
           return;
         }
 
@@ -93,34 +129,65 @@ export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
           const isInsideImage = event.clientX >= renderedLeft && event.clientX <= renderedLeft + renderedWidth
             && event.clientY >= renderedTop && event.clientY <= renderedTop + renderedHeight;
 
-          if (!isInsideImage) setActiveIndex(null);
+          if (!isInsideImage) closeProject();
         }
       }}
       onKeyDown={event => {
         if (event.key === 'ArrowLeft') {
           event.preventDefault();
-          moveProject(-1);
+          moveSlide(-1);
         } else if (event.key === 'ArrowRight') {
           event.preventDefault();
-          moveProject(1);
+          moveSlide(1);
         }
       }}
     >
-      {activeProject && activeIndex !== null && <div className="portfolioLightboxContent">
+      {activeProject && slides.length > 0 && <div className="portfolioLightboxContent">
         <div className="portfolioLightboxTop">
           <span className="portfolioLightboxKind">{activeProject.kind}</span>
-          <button className="portfolioLightboxClose" type="button" onClick={() => setActiveIndex(null)} ref={closeButtonRef} aria-label="Затворете галерията"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6 18 18M18 6 6 18" /></svg></button>
+          <button className="portfolioLightboxClose" type="button" onClick={() => closeProject()} ref={closeButtonRef} aria-label="Затворете галерията"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6 18 18M18 6 6 18" /></svg></button>
         </div>
         <div className="portfolioLightboxStage">
-          <Image className="portfolioLightboxImage" src={activeProject.image} alt={`${activeProject.kind}: ${activeProject.title}, ${activeProject.place}`} fill sizes="100vw" priority />
-          <button className="portfolioLightboxArrow portfolioLightboxPrevious" type="button" onClick={() => moveProject(-1)} aria-label="Предишен проект"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg></button>
-          <button className="portfolioLightboxArrow portfolioLightboxNext" type="button" onClick={() => moveProject(1)} aria-label="Следващ проект"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg></button>
+          <Swiper
+            className="portfolioLightboxSwiper"
+            modules={[A11y, Keyboard]}
+            onSwiper={swiper => { swiperRef.current = swiper; }}
+            onSlideChange={swiper => setSlideIndex(swiper.realIndex)}
+            grabCursor={canSwipe}
+            simulateTouch={canSwipe}
+            allowTouchMove={canSwipe}
+            keyboard={{ enabled: canSwipe }}
+            loop={canSwipe}
+            observer
+            observeParents
+            slidesPerView={1}
+            spaceBetween={0}
+            watchOverflow
+            a11y={{
+              enabled: true,
+              prevSlideMessage: 'Предишна снимка',
+              nextSlideMessage: 'Следваща снимка',
+            }}
+          >
+            {slides.map((slide, index) => (
+              <SwiperSlide key={`${slide.src}-${index}`}>
+                <div className="portfolioLightboxSlide">
+                  <Image className="portfolioLightboxImage" src={slide.src} alt={slide.alt || `${activeProject.kind}: ${activeProject.title}, ${activeProject.place}`} fill sizes="100vw" priority={index === 0} />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          {canSwipe && <>
+            <button className="portfolioLightboxArrow portfolioLightboxPrevious" type="button" onClick={() => moveSlide(-1)} aria-label="Предишна снимка"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg></button>
+            <button className="portfolioLightboxArrow portfolioLightboxNext" type="button" onClick={() => moveSlide(1)} aria-label="Следваща снимка"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg></button>
+          </>}
         </div>
         <div className="portfolioLightboxCaption" aria-live="polite">
           <div>
             <h2>{activeProject.title}</h2>
             <p><LocationPin />{activeProject.place}</p>
           </div>
+          {canSwipe && <span className="portfolioLightboxCount">{slideIndex + 1} / {slides.length}</span>}
         </div>
       </div>}
     </dialog>

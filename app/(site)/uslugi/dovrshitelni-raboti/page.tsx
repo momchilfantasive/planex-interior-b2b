@@ -23,7 +23,7 @@ export default function FinishingWorksPage() {
       'Приключат работата в срок и след финално почистване ще ви предадат готовия за обитаване имот.',
     ],
     closing: '„Планекс Инвест“ извършва довършителни работи и в имоти, чиято интериорна концепция не е дело на нашия екип. Ако вече имате готов интериорен проект или собствено решение за вътрешния дизайн на имота, можем да поемем строително-монтажните дейности и обзавеждането. Можете да възложите услугите ни цялостно или частично.',
-    images: ['/images/service-finishing-editorial.png', '/images/office-krz.jpg', '/images/project-varna.jpg'],
+    images: ['/images/service-finishing-1.jpg', '/images/office-krz.jpg', '/images/project-varna.jpg'],
     projects: [
       { title: 'Офис КРЗ Одесос АД', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9038_39_40_q__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Еднофамилна къща', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/Oreshak-1__FillMaxWzc3MCw4MDBd.jpg' },

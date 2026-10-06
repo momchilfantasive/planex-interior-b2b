@@ -19,7 +19,7 @@ export default function RenovationPage() {
       'Ремонт на кухня: цялостно проектиране, реализация и оборудване.',
       'Цялостно обзавеждане, избор и изработка на мебели, текстил, аксесоари и декорация.',
     ],
-    images: ['/images/service-renovation-editorial.png', '/images/project-briz.jpg', '/images/office-yavlena.jpg'],
+    images: ['/images/service-renovation-2.jpg', '/images/project-briz.jpg', '/images/office-yavlena.jpg'],
     projects: [
       { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Офис', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9116_7_8_q__FillMaxWzc3MCw4MDBd.jpg' },

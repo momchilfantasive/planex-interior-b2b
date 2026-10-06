@@ -31,7 +31,7 @@ export function SiteMotion() {
           smoothWheel: true,
           syncTouch: false,
           anchors: { offset: -24 },
-          prevent: element => element.closest('.officeCarousel, .mobileNavigation') !== null,
+          prevent: element => element.closest('.officeCarousel, .swiper, .portfolioLightbox, .mobileNavigation') !== null,
         });
         const tick = (time: number) => lenis.raf(time * 1000);
         lenis.on('scroll', ScrollTrigger.update);

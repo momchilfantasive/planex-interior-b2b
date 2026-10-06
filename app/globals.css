@@ -74,12 +74,12 @@ footer{margin-top:20px;min-height:280px;padding-top:42px}.footerNav{margin-top:0
 .serviceCard>a:first-child{display:block}.serviceCard .serviceImage{transition:transform .45s ease,filter .45s ease}.serviceCard>a:first-child:hover .serviceImage{transform:scale(.985);filter:brightness(.92)}
 .serviceCard h3 a{font-size:inherit}.textLink{display:inline-flex;gap:9px;align-items:center;min-height:44px;margin-top:2px;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
 .projectActions{display:flex;gap:9px}.projectActions button{display:grid;place-items:center;width:48px;height:48px;min-width:48px;padding:0;border:1px solid var(--ink);border-radius:50%;background:transparent;color:var(--ink);font-size:20px}.projectActions button:hover{background:var(--ink);color:#fff}
-.officeCarousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:5px}.officeCarousel::-webkit-scrollbar{display:none}.officeCarousel .projectCard{flex:0 0 min(72vw,820px);scroll-snap-align:start}.officeCarousel .projectImage{height:min(58vw,590px)}
+.officeCarousel.swiper{overflow:hidden;padding-bottom:5px;height:auto}.officeCarousel .swiper-wrapper{height:auto;align-items:stretch}.officeCarousel .swiper-slide{height:auto}.officeCarousel .projectCard{width:100%}.officeCarousel .projectImage{height:min(58vw,590px)}
 .projectsFooter{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}.projectsFooter p{margin:0;color:var(--muted);font-size:14px}
 .benefits{border-top:1px solid var(--ink)}.benefitsIntro{display:grid;grid-template-columns:.35fr 1fr;gap:6vw;margin-bottom:55px}.benefitsIntro h2{font-size:clamp(34px,4vw,58px);line-height:1.06;letter-spacing:-.055em;font-weight:500;max-width:920px;margin:0}
 .benefitGrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}.benefitGrid article{min-height:230px;padding:24px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);display:flex;flex-direction:column}.benefitGrid span{font-size:14px;color:var(--muted)}.benefitGrid h3{margin:auto 0 10px;font-size:19px;font-weight:600}.benefitGrid p{margin:0;color:var(--muted);font-size:15px;line-height:1.6;max-width:350px}
-@media(max-width:900px){.proofBar{grid-template-columns:1fr 1fr}.proofBar span{padding:18px 20px;border-bottom:1px solid var(--line)}.proofBar span:nth-child(odd){padding-left:0}.officeCarousel .projectCard{flex-basis:82vw}.benefitsIntro{grid-template-columns:1fr}.benefitGrid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.proofBar{grid-template-columns:1fr;margin:0 6vw;padding:18px 0}.proofBar span,.proofBar span:nth-child(odd){padding:14px 0;border-right:0}.sectionHeader .projectActions{margin-top:24px}.officeCarousel{margin-right:-6vw}.officeCarousel .projectCard{flex-basis:86vw}.officeCarousel .projectImage{height:390px}.projectsFooter{align-items:flex-start;gap:20px}.projectsFooter p{display:none}.benefitGrid{grid-template-columns:1fr}.benefitGrid article{min-height:200px}}
+@media(max-width:900px){.proofBar{grid-template-columns:1fr 1fr}.proofBar span{padding:18px 20px;border-bottom:1px solid var(--line)}.proofBar span:nth-child(odd){padding-left:0}.benefitsIntro{grid-template-columns:1fr}.benefitGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.proofBar{grid-template-columns:1fr;margin:0 6vw;padding:18px 0}.proofBar span,.proofBar span:nth-child(odd){padding:14px 0;border-right:0}.sectionHeader .projectActions{margin-top:24px}.officeCarousel .projectImage{height:390px}.projectsFooter{align-items:flex-start;gap:20px}.projectsFooter p{display:none}.benefitGrid{grid-template-columns:1fr}.benefitGrid article{min-height:200px}}
 
 /* Slate and cyan palette */
 body{background:#45505d;color:var(--ink)}
@@ -235,16 +235,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .portfolioCard:hover .portfolioOpenHint,.portfolioCard:focus-visible .portfolioOpenHint{opacity:1;transform:translateY(0)}
 .portfolioLightbox{width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:clamp(18px,3vw,44px);border:0;background:#252d35;color:#f7f9fa;overflow:hidden}
 .portfolioLightbox::backdrop{background:rgba(17,22,28,.94)}
-.portfolioLightboxContent{display:grid;width:100%;height:100%;grid-template-rows:auto minmax(0,1fr) auto;gap:20px}
+.portfolioLightboxContent{display:grid;width:100%;height:100%;min-width:0;grid-template-rows:auto minmax(0,1fr) auto;gap:20px}
 .portfolioLightboxTop,.portfolioLightboxCaption{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .portfolioLightboxKind{font-size:14px;color:#c4cdd3}
 .portfolioLightboxClose,.portfolioLightboxArrow{display:grid;place-items:center;flex:none;width:52px;height:52px;padding:0;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;line-height:0;cursor:pointer;transition:background .2s ease,border-color .2s ease}
 .portfolioLightboxClose svg,.portfolioLightboxArrow svg{display:block;width:23px;height:23px}
 .portfolioLightboxClose:hover,.portfolioLightboxArrow:hover{background:rgba(41,198,229,.22);border-color:#29c6e5}
-.portfolioLightboxStage{position:relative;min-height:0;display:grid;place-items:center}
+.portfolioLightboxStage{position:relative;min-width:0;min-height:0;height:100%;overflow:hidden}
+.portfolioLightboxSwiper{position:absolute;inset:0;width:100%;height:100%}
+.portfolioLightboxSwiper .swiper-wrapper,.portfolioLightboxSwiper .swiper-slide{width:100%;height:100%}
+.portfolioLightboxSlide{position:relative;width:100%;height:100%}
 .portfolioLightboxImage{object-fit:contain;padding:0 70px}
-.portfolioLightboxArrow{position:absolute;z-index:1;top:50%;transform:translateY(-50%)}
+.portfolioLightboxArrow{position:absolute;z-index:3;top:50%;transform:translateY(-50%)}
 .portfolioLightboxPrevious{left:0}.portfolioLightboxNext{right:0}
+.portfolioLightboxCount{flex:none;color:#c4cdd3;font-size:14px;letter-spacing:.04em}
 .portfolioLightboxCaption h2{margin:0 0 5px;font-family:var(--font-montserrat),sans-serif;font-size:clamp(20px,2.3vw,30px);font-weight:500;line-height:1.2}
 .portfolioLightboxCaption p{display:flex;align-items:center;gap:7px;margin:0;color:#c4cdd3;font-size:15px}
 .portfolioLightboxCaption svg{width:17px;height:17px}
@@ -414,7 +418,9 @@ button:not(.portfolioCard) {
   text-decoration: none;
 }
 .navCta:hover, .pill:hover, .textLink:hover, .simpleLink:hover, .servicePortfolioLink:hover,
-button:not(.portfolioCard):hover { box-shadow: 0 10px 24px rgba(0, 202, 233, .2); transform: translateY(-1px); }
+button:not(.portfolioCard):not(.portfolioLightboxArrow):not(.portfolioLightboxClose):hover { box-shadow: 0 10px 24px rgba(0, 202, 233, .2); transform: translateY(-1px); }
+.projectActions button:not(.portfolioCard):not(.portfolioLightboxArrow):not(.portfolioLightboxClose):hover { box-shadow: none; transform: none; }
+button.portfolioLightboxArrow:hover { transform: translateY(-50%); }
 .siteHeader .navCta { color: #fff; }
 .navCta span, .pill span, .simpleLink span, button span { color: inherit; font-size: inherit; }
 .textLink, .simpleLink, .servicePortfolioLink { width: max-content; }
