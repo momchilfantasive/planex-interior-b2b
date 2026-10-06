@@ -392,3 +392,101 @@ html.lenis, html.lenis body { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; }
   .serviceProjectImage img { transition: none; }
 }
+
+/* Consistent gradient actions, without decorative arrow suffixes. */
+.navCta, .pill, .textLink, .simpleLink, .servicePortfolioLink,
+button:not(.portfolioCard) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+.navCta:hover, .pill:hover, .textLink:hover, .simpleLink:hover, .servicePortfolioLink:hover,
+button:not(.portfolioCard):hover { box-shadow: 0 10px 24px rgba(0, 202, 233, .2); transform: translateY(-1px); }
+.siteHeader .navCta { color: #fff; }
+.navCta span, .pill span, .simpleLink span, button span { color: inherit; font-size: inherit; }
+.textLink, .simpleLink, .servicePortfolioLink { width: max-content; }
+.servicePortfolioLink { margin-left: 0; border: 0; }
+.projectActions { gap: 10px; }
+.projectActions button { width: auto; min-width: 94px; height: 46px; padding: 0 18px; color: #fff; }
+.darkContact button { min-width: 130px; }
+.portfolioLightboxClose, .portfolioLightboxArrow { color: #fff; }
+.portfolioLightboxClose { width: 52px; height: 52px; padding: 0; }
+.portfolioLightboxArrow { width: auto; min-width: 90px; height: 46px; padding: 0 16px; font-size: 13px; }
+.portfolioLightboxClose svg { width: 21px; height: 21px; }
+
+/* Service-page type now follows one left-aligned column with a wider reading measure. */
+.serviceHeroHeading { width: 100%; max-width: 1600px; margin: 0; padding: 0 7vw 42px; text-align: left; }
+.serviceHeroHeading h1 { max-width: 100%; font-size: clamp(44px, 5.2vw, 70px); line-height: 1.05; }
+.serviceHeroHeading > p { width: 100%; max-width: 100%; margin: 22px 0 0; text-align: left; text-wrap: initial; }
+.serviceStatement { padding: 96px 7vw 70px; }
+.serviceStatementText { width: 100%; max-width: 1180px; margin: 0; text-align: left; }
+.serviceStatementText h2 { max-width: 100%; margin: 0 0 28px; text-align: left; }
+.serviceBodyCopy { width: 100%; max-width: 1060px; margin: 0; }
+.serviceScopeHeading, .serviceProjectsHeading { width: 100%; max-width: 1180px; margin: 0 0 44px; text-align: left; }
+.serviceScopeHeading p { max-width: 1060px; margin: 0; }
+.serviceScope ol { max-width: 1180px; margin: 0; }
+.serviceClosing { text-align: left; padding-left: 7vw; padding-right: 7vw; }
+.serviceClosing h2, .serviceClosing > p { max-width: 1060px; margin-left: 0; margin-right: 0; }
+.servicePage .contactBand { align-items: flex-start; text-align: left; }
+.servicePage .contactBand > div { width: 100%; max-width: 1180px; }
+.servicePage .contactBand p { margin-left: 0; }
+.servicePage .contactBand .pill { align-self: flex-start; }
+
+/* The About page uses the supplied Planex Invest mark over its full-bleed image. */
+.aboutBrandHero { position: relative; height: min(56vw, 690px); min-height: 410px; overflow: hidden; background: #34414c; }
+.aboutBrandHeroImage { position: absolute; inset: 0; overflow: hidden; }
+.aboutBrandHeroLayer { position: absolute; inset: -6% 0; }
+.aboutBrandHeroLayer img { object-fit: cover; object-position: center 52%; }
+.aboutBrandHeroShade { position: absolute; inset: 0; background: rgba(31, 40, 49, .42); }
+.aboutBrandLogo { position: absolute; left: 50%; top: 50%; width: min(546px, 68vw); height: auto; transform: translate(-50%, -50%); filter: drop-shadow(0 5px 20px rgba(14, 22, 30, .35)); }
+.aboutPageIntro { padding: 72px 7vw 36px; background: #45505d; color: #f7f9fa; }
+.aboutPageIntro h1 { max-width: 1280px; margin: 0 0 20px; font-family: var(--font-montserrat), sans-serif; font-size: clamp(38px, 5vw, 70px); font-weight: 500; line-height: 1.08; letter-spacing: -.055em; }
+.aboutPageIntro > p:last-child { max-width: 1050px; margin: 0; color: #dce2e8; font-size: 18px; line-height: 1.65; }
+
+/* Nested image layers give the existing Lenis/GSAP motion system real parallax surfaces. */
+.homeParallaxLayer { position: absolute; inset: -7% 0; background-position: center; background-size: cover; will-change: transform; }
+.serviceImage[data-parallax], .projectImage[data-parallax], .aboutPhoto[data-parallax] { position: relative; overflow: hidden; }
+.serviceImage[data-parallax]::after, .projectImage[data-parallax]::after { z-index: 1; pointer-events: none; }
+.projectImage .category { z-index: 2; }
+.hero h1 { font-size: clamp(46px, 5.25vw, 70px); }
+.heroText { max-width: 1120px; }
+@media (max-width: 900px) {
+  .serviceHeroHeading { padding-right: 6vw; padding-left: 6vw; }
+  .serviceHeroHeading h1 { font-size: clamp(42px, 6.5vw, 70px); }
+  .serviceStatement { padding-right: 7vw; padding-left: 7vw; }
+  .serviceScopeHeading, .serviceProjectsHeading, .serviceScope ol { margin-left: 0; }
+  .aboutBrandHero { height: 56vw; min-height: 350px; }
+}
+@media (max-width: 700px) {
+  .serviceHeroHeading { padding: 0 6vw 32px; text-align: left; }
+  .serviceHeroHeading h1 { font-size: clamp(40px, 9.8vw, 64px); line-height: 1.08; }
+  .serviceHeroHeading > p { margin-top: 18px; font-size: 17px; }
+  .serviceStatement { padding: 68px 7vw 44px; }
+  .serviceStatementText h2 { text-align: left; }
+  .serviceScopeHeading, .serviceProjectsHeading { margin-bottom: 30px; padding: 0; }
+  .serviceScope ol { margin: 0; }
+  .serviceClosing { padding: 65px 7vw; }
+  .servicePage .contactBand { align-items: flex-start; }
+  .aboutBrandHero { height: 62vw; min-height: 270px; }
+  .aboutBrandLogo { width: min(430px, 76vw); }
+  .aboutPageIntro { padding: 54px 7vw 28px; }
+  .aboutPageIntro h1 { font-size: clamp(36px, 8vw, 54px); }
+}
+@media (max-width: 560px) {
+  .hero h1 { font-size: 38px; line-height: 1.05; }
+  .heroText { max-width: 100%; }
+  .aboutBrandHero { min-height: 240px; }
+}

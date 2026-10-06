@@ -31,7 +31,7 @@ function ServiceImage({ src, alt, hero = false }: { src: string; alt: string; he
 export function ServicePage({ data }: { data: Service }) {
   const introSentences = data.intro[0].split(/(?<=[.!?])\s+/);
   const statementTitle = introSentences[0];
-  const statementBody = [introSentences.slice(1).join(' '), ...data.intro.slice(1)].filter(Boolean);
+  const statementBody = [introSentences.slice(1).join(' '), ...data.intro.slice(1), data.imageCaption].filter(Boolean);
 
   return <main className="innerPage servicePage">
     <SiteHeader />
@@ -52,7 +52,6 @@ export function ServicePage({ data }: { data: Service }) {
 
     <section className="serviceImageEssay" aria-label={`Снимки за ${data.title}`}>
       <div className="serviceEssayGrid">{data.images.slice(1).map((image, index) => <ServiceImage src={image} alt={`${data.title}, детайл ${index + 1}`} key={image} />)}</div>
-      <p className="serviceEssayNote" data-reveal>{data.imageCaption}</p>
     </section>
 
     <section className="serviceScope" aria-labelledby="service-scope-title">
@@ -73,10 +72,10 @@ export function ServicePage({ data }: { data: Service }) {
           <div className="serviceProjectCaption"><h3>{project.title}</h3><span><Pin />{project.place}</span></div>
         </Link>
       </article>)}</div>
-      <Link className="servicePortfolioLink" href="/portfolio/">Разгледайте всички проекти <span aria-hidden="true">↗</span></Link>
+      <Link className="servicePortfolioLink" href="/portfolio/">Разгледайте всички проекти</Link>
     </section>
 
     <ContactBand />
-    <SiteFooter compact />
+    <SiteFooter />
   </main>;
 }
