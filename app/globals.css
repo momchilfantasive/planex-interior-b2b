@@ -513,3 +513,52 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
   .heroText { max-width: 100%; }
   .aboutBrandHero { min-height: 240px; }
 }
+
+/* Keep the homepage navigation available at tablet and phone widths. */
+.homeMobileNavigation { display: none; }
+.nav .ctaShort { display: none; }
+@media (max-width: 900px) {
+  .nav .desktopNavigation { display: none; }
+  .homeMobileNavigation { position: relative; z-index: 5; display: block; }
+  .homeMobileNavigation summary {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,.62);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+  }
+  .homeMobileNavigation summary::-webkit-details-marker { display: none; }
+  .homeMobileNavigation summary svg { width: 22px; height: 22px; }
+  .nav .homeMobileNavigation nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: -12px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: min(84vw, 340px);
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 12px;
+    background: #35414b;
+    box-shadow: 0 18px 36px rgba(13,20,27,.28);
+  }
+  .homeMobileNavigation:not([open]) nav { display: none; }
+  .homeMobileNavigation nav a { display: flex; align-items: center; min-height: 48px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .homeMobileNavigation nav a:last-child { border-bottom: 0; }
+}
+@media (max-width: 560px) {
+  .nav { gap: 10px; }
+  .nav .brand img { width: min(138px, 35vw); height: auto; }
+  .nav .navCta { min-width: 0; padding: 11px 14px; }
+  .nav .ctaFull { display: none; }
+  .nav .ctaShort { display: inline; }
+  .hero { height: max(700px, calc(100svh - 20px)); }
+  .heroContent { bottom: 18%; }
+  .section { padding-top: 68px; padding-bottom: 68px; }
+}
