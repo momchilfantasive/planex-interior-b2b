@@ -1,4 +1,4 @@
-import { ContactBand, PageFrame } from '@/app/components/SiteChrome';
+import { ContactBand, SiteFooter, SiteHeader } from '@/app/components/SiteChrome';
 import PortfolioGallery from '@/app/components/PortfolioGallery';
 
 export const metadata = { title: 'Портфолио | Планекс Интериор', description: 'Реализирани интериорни проекти на Планекс Инвест – офиси, жилища и търговски пространства.' };
@@ -25,11 +25,13 @@ const projects = [
 ];
 
 export default function PortfolioPage() {
-  return <PageFrame eyebrow="Избрани реализации" title="Портфолио" intro="Офисни и жилищни интериори, реализирани от екипа на Планекс Инвест.">
-    <section className="portfolioPage">
-      <div className="portfolioIntro"><p>Всеки проект започва с нуждите на хората, които ще използват пространството. Поемаме цялостното изпълнение или отделни етапи – от интериорната концепция до довършването и обзавеждането.</p><span>{projects.length} проекта</span></div>
+  return <main className="innerPage">
+    <SiteHeader />
+    <section className="portfolioPage" aria-labelledby="portfolio-title">
+      <div className="portfolioIntro"><h1 id="portfolio-title">Портфолио</h1><p>Всеки проект започва с нуждите на хората, които ще използват пространството. Поемаме цялостното изпълнение или отделни етапи – от интериорната концепция до довършването и обзавеждането.</p></div>
       <PortfolioGallery projects={projects} />
     </section>
     <ContactBand />
-  </PageFrame>;
+    <SiteFooter />
+  </main>;
 }

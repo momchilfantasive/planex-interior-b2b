@@ -214,10 +214,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .companyStory>div:last-child{max-width:850px;color:#596773;font-size:17px;line-height:1.8}
 .isoNote{display:flex;gap:28px;align-items:center;margin:38px 0 0;padding-top:26px;border-top:1px solid #cbd2d8}
 .isoNote strong{font-size:28px;color:#35414b;white-space:nowrap}.isoNote span{font-size:14px;line-height:1.6}
-.portfolioPage{padding:80px 5vw 110px;background:#ebedf2;color:#35414b}
-.portfolioIntro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:0 5vw 42px;color:#596773}
-.portfolioIntro p{max-width:750px;margin:0;font-size:17px;line-height:1.7}
-.portfolioIntro span{color:#596773;font-size:14px;white-space:nowrap}
+.portfolioPage{padding:48px 5vw 110px;background:#ebedf2;color:#35414b}
+.portfolioIntro{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:8vw;margin:0 0 38px;color:#596773}
+.portfolioIntro h1{margin:0;color:#35414b;font-family:var(--font-montserrat),sans-serif;font-size:clamp(46px,5.8vw,78px);font-weight:500;line-height:1.02;letter-spacing:-.055em}
+.portfolioIntro p{max-width:700px;margin:0;font-size:17px;line-height:1.7}
 .portfolioGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:52px 20px}
 .portfolioCard{min-width:0}
 .portfolioImage{position:relative;aspect-ratio:1.24;overflow:hidden;border-radius:9px;background:#cbd2d8}
@@ -225,7 +225,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .portfolioCard:hover .portfolioImage img{transform:scale(1.025);filter:saturate(1)}
 .portfolioTag{position:absolute;top:16px;right:16px;padding:8px 12px;border:1px solid rgba(255,255,255,.75);border-radius:999px;background:rgba(238,242,244,.94);color:#34434e;font-size:14px;font-weight:600}
 .portfolioCaption{display:flex;justify-content:space-between;align-items:start;gap:14px;padding-top:17px}
-.portfolioProjectTitle{display:block;font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:19px;line-height:1.35}
+.portfolioCard .portfolioProjectTitle{display:block;color:#35414b;font-family:var(--font-montserrat),sans-serif;font-weight:500;font-size:19px;line-height:1.35}
 .portfolioCaption .portfolioLocation{display:flex;align-items:center;gap:6px;white-space:nowrap;color:#62717c;font-size:14px}
 .portfolioCaption svg{width:16px;height:16px}
 .portfolioCard{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}
@@ -238,18 +238,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .portfolioLightboxContent{display:grid;width:100%;height:100%;grid-template-rows:auto minmax(0,1fr) auto;gap:20px}
 .portfolioLightboxTop,.portfolioLightboxCaption{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .portfolioLightboxKind{font-size:14px;color:#c4cdd3}
-.portfolioLightboxClose,.portfolioLightboxArrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font:400 32px/1 var(--font-inter),sans-serif;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.portfolioLightboxClose,.portfolioLightboxArrow{display:grid;place-items:center;flex:none;width:52px;height:52px;padding:0;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;line-height:0;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.portfolioLightboxClose svg,.portfolioLightboxArrow svg{display:block;width:23px;height:23px}
 .portfolioLightboxClose:hover,.portfolioLightboxArrow:hover{background:rgba(41,198,229,.22);border-color:#29c6e5}
 .portfolioLightboxStage{position:relative;min-height:0;display:grid;place-items:center}
 .portfolioLightboxImage{object-fit:contain;padding:0 70px}
-.portfolioLightboxArrow{position:absolute;z-index:1;top:50%;transform:translateY(-50%);font-size:38px}
+.portfolioLightboxArrow{position:absolute;z-index:1;top:50%;transform:translateY(-50%)}
 .portfolioLightboxPrevious{left:0}.portfolioLightboxNext{right:0}
 .portfolioLightboxCaption h2{margin:0 0 5px;font-family:var(--font-montserrat),sans-serif;font-size:clamp(20px,2.3vw,30px);font-weight:500;line-height:1.2}
 .portfolioLightboxCaption p{display:flex;align-items:center;gap:7px;margin:0;color:#c4cdd3;font-size:15px}
 .portfolioLightboxCaption svg{width:17px;height:17px}
-.portfolioLightboxCount{color:#c4cdd3;font-size:14px;font-variant-numeric:tabular-nums}
 .portfolioLightbox button:focus-visible{outline:3px solid #29c6e5;outline-offset:4px}
-@media(max-width:560px){.portfolioLightbox{padding:15px}.portfolioLightboxContent{gap:14px}.portfolioLightboxClose,.portfolioLightboxArrow{width:44px;height:44px}.portfolioLightboxImage{padding:0 48px}.portfolioLightboxCaption{align-items:end}.portfolioLightboxCaption p{font-size:14px}}
+@media(max-width:760px){.portfolioIntro{grid-template-columns:1fr;gap:14px}}
+@media(max-width:560px){.portfolioLightbox{padding:15px}.portfolioLightboxContent{gap:14px}.portfolioLightboxClose,.portfolioLightboxArrow{width:48px;height:48px}.portfolioLightboxImage{padding:0 52px}.portfolioLightboxCaption{align-items:end}.portfolioLightboxCaption p{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.portfolioOpenHint,.portfolioImage img{transition:none}}
 .contactPageGrid{padding:100px 10vw;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;background:var(--paper)}
 .contactOffice{padding:36px;border:1px solid rgba(255,255,255,.22);border-radius:10px}

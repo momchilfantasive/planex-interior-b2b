@@ -110,19 +110,18 @@ export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
       {activeProject && activeIndex !== null && <div className="portfolioLightboxContent">
         <div className="portfolioLightboxTop">
           <span className="portfolioLightboxKind">{activeProject.kind}</span>
-          <button className="portfolioLightboxClose" type="button" onClick={() => setActiveIndex(null)} ref={closeButtonRef} aria-label="Затворете галерията">×</button>
+          <button className="portfolioLightboxClose" type="button" onClick={() => setActiveIndex(null)} ref={closeButtonRef} aria-label="Затворете галерията"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6 18 18M18 6 6 18" /></svg></button>
         </div>
         <div className="portfolioLightboxStage">
           <Image className="portfolioLightboxImage" src={activeProject.image} alt={`${activeProject.kind}: ${activeProject.title}, ${activeProject.place}`} fill sizes="100vw" priority />
-          <button className="portfolioLightboxArrow portfolioLightboxPrevious" type="button" onClick={() => moveProject(-1)} aria-label="Предишен проект">‹</button>
-          <button className="portfolioLightboxArrow portfolioLightboxNext" type="button" onClick={() => moveProject(1)} aria-label="Следващ проект">›</button>
+          <button className="portfolioLightboxArrow portfolioLightboxPrevious" type="button" onClick={() => moveProject(-1)} aria-label="Предишен проект"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg></button>
+          <button className="portfolioLightboxArrow portfolioLightboxNext" type="button" onClick={() => moveProject(1)} aria-label="Следващ проект"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg></button>
         </div>
         <div className="portfolioLightboxCaption" aria-live="polite">
           <div>
             <h2>{activeProject.title}</h2>
             <p><LocationPin />{activeProject.place}</p>
           </div>
-          <span className="portfolioLightboxCount">{activeIndex + 1} / {projects.length}</span>
         </div>
       </div>}
     </dialog>
