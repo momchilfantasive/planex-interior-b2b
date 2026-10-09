@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import { SiteMotion } from './components/SiteMotion';
-import 'lenis/dist/lenis.css';
-import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Планекс Интериор | Интериорни решения за жилища и бизнес пространства',
@@ -15,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bg">
-      <body>{children}<SiteMotion /></body>
+      <body>{children}</body>
     </html>
   );
 }

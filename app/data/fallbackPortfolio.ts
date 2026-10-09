@@ -1,14 +1,11 @@
-import { ContactBand, SiteFooter, SiteHeader } from '@/app/components/SiteChrome';
-import PortfolioGallery from '@/app/components/PortfolioGallery';
+import type { PortfolioProject } from '@/app/components/PortfolioGallery';
 
-export const metadata = { title: 'Портфолио | Планекс Интериор', description: 'Реализирани интериорни проекти на Планекс Инвест – офиси, жилища и търговски пространства.' };
-
-const projects = [
-  { title: 'Офис, кв. Витоша', place: 'София', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/titul-ofis-sofiya__FillMaxWzc3MCw4MDBd.jpg' },
-  { title: 'Тристаен апартамент', place: 'Варна, център', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/1-v2__FillMaxWzc3MCw4MDBd.jpg' },
-  { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg' },
-  { title: 'Офис КРЗ Одесос АД', place: 'Варна', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9038_39_40_q__FillMaxWzc3MCw4MDBd.jpg' },
-  { title: 'Офис Явлена', place: 'Варна', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9125_6_7_q__FillMaxWzc3MCw4MDBd.jpg' },
+export const fallbackPortfolioProjects: PortfolioProject[] = [
+  { title: 'Офис, кв. Витоша', place: 'София', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/titul-ofis-sofiya__FillMaxWzc3MCw4MDBd.jpg', gallery: [{ src: '/images/project-office.jpg', alt: 'Офис интериор, кв. Витоша, София' }] },
+  { title: 'Тристаен апартамент', place: 'Варна, център', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/1-v2__FillMaxWzc3MCw4MDBd.jpg', gallery: [{ src: '/images/project-varna.jpg', alt: 'Тристаен апартамент, Варна, център' }] },
+  { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg', gallery: [{ src: '/images/project-briz.jpg', alt: 'Двустаен апартамент, Варна, кв. Бриз' }] },
+  { title: 'Офис КРЗ Одесос АД', place: 'Варна', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9038_39_40_q__FillMaxWzc3MCw4MDBd.jpg', gallery: [{ src: '/images/office-krz.jpg', alt: 'Офис КРЗ Одесос АД, Варна' }] },
+  { title: 'Офис Явлена', place: 'Варна', kind: 'Офис интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9125_6_7_q__FillMaxWzc3MCw4MDBd.jpg', gallery: [{ src: '/images/office-yavlena.jpg', alt: 'Офис Явлена, Варна' }] },
   { title: 'Тристаен апартамент', place: 'Варна', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/s21-1-2-lead__FillMaxWzc3MCw4MDBd.jpg' },
   { title: 'Еднофамилна къща', place: 'Варна', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/Oreshak-1__FillMaxWzc3MCw4MDBd.jpg' },
   { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_8936_7_8111__FillMaxWzc3MCw4MDBd.jpg' },
@@ -23,15 +20,3 @@ const projects = [
   { title: 'Апартамент', place: 'Каварна', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/IMG_1312_q__FillMaxWzc3MCw4MDBd.jpg' },
   { title: 'Апартамент', place: 'Каварна', kind: 'Жилищен интериор', image: 'https://planexinterior.bg/assets/Uploads/projects/IMG_1194_q__FillMaxWzc3MCw4MDBd.jpg' },
 ];
-
-export default function PortfolioPage() {
-  return <main className="innerPage">
-    <SiteHeader />
-    <section className="portfolioPage" aria-labelledby="portfolio-title">
-      <div className="portfolioIntro"><h1 id="portfolio-title">Портфолио</h1><p>Всеки проект започва с нуждите на хората, които ще използват пространството. Поемаме цялостното изпълнение или отделни етапи – от интериорната концепция до довършването и обзавеждането.</p></div>
-      <PortfolioGallery projects={projects} />
-    </section>
-    <ContactBand />
-    <SiteFooter />
-  </main>;
-}
