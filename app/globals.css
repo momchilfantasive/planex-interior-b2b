@@ -568,3 +568,10 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
   .heroContent { bottom: 18%; }
   .section { padding-top: 68px; padding-bottom: 68px; }
 }
+
+.turnstileSlot { min-height: 65px; }
+.formNotice { margin: 0; color: #d7dee4; font-size: 15px; font-weight: 500; letter-spacing: 0; line-height: 1.5; text-transform: none; }
+.formNotice[data-tone="error"] { color: #ffc7c2; }
+.formNotice[data-tone="success"] { color: #c8f5d4; }
+.darkContact button:disabled,
+.darkContact button:disabled:hover { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; background-size: 100% 100%; }

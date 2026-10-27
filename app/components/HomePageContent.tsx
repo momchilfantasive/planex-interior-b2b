@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ContactForm from "@/app/components/ContactForm";
 import OfficeCarousel from "@/app/components/OfficeCarousel";
 
 const services = [
@@ -379,52 +380,7 @@ export default function HomePageContent({ homes, offices }: HomePageContentProps
             </article>
           </div>
         </div>
-        <form
-          action="mailto:interior@planexinvest.bg"
-          method="post"
-          encType="text/plain"
-        >
-          <h3>Изпратете ни запитване</h3>
-          <div className="formRow">
-            <label>
-              Име
-              <input name="name" required />
-            </label>
-            <label>
-              Фамилия
-              <input name="surname" />
-            </label>
-          </div>
-          <div className="formRow">
-            <label>
-              E-mail
-              <input name="email" type="email" required />
-            </label>
-            <label>
-              Телефон
-              <input name="phone" type="tel" />
-            </label>
-          </div>
-          <label>
-            Тип проект
-            <select name="project">
-              <option>Изберете</option>
-              <option>Жилище</option>
-              <option>Офис или бизнес пространство</option>
-              <option>Търговска площ</option>
-              <option>Друго</option>
-            </select>
-          </label>
-          <label>
-            Съобщение
-            <textarea name="message" required />
-          </label>
-          <label className="check">
-            <input type="checkbox" required />
-            <span>Приемам политиката за поверителност.</span>
-          </label>
-          <button type="submit">Изпратете</button>
-        </form>
+        <ContactForm />
       </section>
 
       <footer>
