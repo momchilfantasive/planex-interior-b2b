@@ -35,8 +35,7 @@ function LocationPin() {
 
 function getProjectSlides(project: PortfolioProject): PortfolioImage[] {
   const main: PortfolioImage = { src: project.image, alt: project.alt };
-  const rest = (project.gallery ?? []).filter(image => image.src && image.src !== main.src);
-  return [main, ...rest];
+  return (project.gallery ?? []).filter(image => image.src && image.src !== main.src);
 }
 
 export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
@@ -61,6 +60,7 @@ export default function PortfolioGallery({ projects }: PortfolioGalleryProps) {
   }, [activeIndex]);
 
   function openProject(index: number) {
+    if (getProjectSlides(projects[index]).length === 0) return;
     setSlideIndex(0);
     setActiveIndex(index);
   }

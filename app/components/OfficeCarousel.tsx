@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 type OfficeProject = {
+  id: string;
   image: string;
   title: string;
   place: string;
@@ -32,8 +33,8 @@ export default function OfficeCarousel({ offices }: { offices: OfficeProject[] }
           <h2>Офиси и търговски площи с цялостна реализация</h2>
         </div>
         <div className="projectActions">
-          <button type="button" onClick={() => swiperRef.current?.slidePrev()} aria-label="Предишни проекти">←</button>
-          <button type="button" onClick={() => swiperRef.current?.slideNext()} aria-label="Следващи проекти">→</button>
+          <button type="button" onClick={() => swiperRef.current?.slidePrev()} aria-label="Предишни проекти">&#10229;</button>
+          <button type="button" onClick={() => swiperRef.current?.slideNext()} aria-label="Следващи проекти">&#10230;</button>
         </div>
       </div>
       <Swiper
@@ -56,7 +57,7 @@ export default function OfficeCarousel({ offices }: { offices: OfficeProject[] }
         }}
       >
         {offices.map((project, index) => (
-          <SwiperSlide key={project.title}>
+          <SwiperSlide key={project.id}>
             <article className={`projectCard office${index + 1}`}>
               <div className="projectImage" data-parallax>
                 <div className="homeParallaxLayer" data-parallax-layer style={{ backgroundImage: `url('${project.image}')` }} />
