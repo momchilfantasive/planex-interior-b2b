@@ -37,6 +37,7 @@ export function SiteMotion() {
           // composited inside the same scroll update.
           virtualScroll: () => {
             if (heroVideo && heroVisible && !heroVideo.paused) heroVideo.pause();
+            return true;
           },
           // The office carousel is horizontal. Letting it opt out of Lenis makes
           // the vertical wheel fall back to instant native scrolling while the
