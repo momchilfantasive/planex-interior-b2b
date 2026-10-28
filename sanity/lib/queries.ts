@@ -12,3 +12,23 @@ export const portfolioProjectsQuery = defineQuery(`
       gallery
     }
 `);
+
+export const homepageHomesQuery = defineQuery(`
+  *[_type == "portfolioProject" && showOnHomeHomes == true && category == "Жилищен интериор"]
+    | order(order asc, _createdAt desc)[0...2] {
+      _id,
+      title,
+      location,
+      mainImage
+    }
+`);
+
+export const homepageBusinessProjectsQuery = defineQuery(`
+  *[_type == "portfolioProject" && showOnHomeBusiness == true && category in ["Офис интериор", "Търговски интериор"]]
+    | order(order asc, _createdAt desc) {
+      _id,
+      title,
+      location,
+      mainImage
+    }
+`);

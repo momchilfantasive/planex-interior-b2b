@@ -18,8 +18,19 @@ type SanityPortfolioProject = {
   gallery?: SanityImage[] | null;
 };
 
+function normalizeProjectText(value: string) {
+  return value
+    .toLocaleLowerCase('bg')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
 function isSameProject(left: PortfolioProject, right: PortfolioProject) {
-  return left.title === right.title && left.place === right.place;
+  return normalizeProjectText(`${left.title} ${left.place}`)
+    === normalizeProjectText(`${right.title} ${right.place}`);
 }
 
 function mapSanityImage(image?: SanityImage): PortfolioImage | null {

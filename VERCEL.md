@@ -41,6 +41,15 @@ Vercel → Project → **Settings → Environment Variables**.
 | `NEXT_PUBLIC_SANITY_DATASET` | `production` | Да | Кой dataset да се чете и редактира |
 | `NEXT_PUBLIC_SANITY_API_VERSION` | `2026-10-06` | Да | Фиксирана GROQ API дата. Не използвайте `v1` |
 | `SANITY_REVALIDATE_SECRET` | дълъг случаен низ | Препоръчителна | Секрет за webhook, за да се обновява `/portfolio/` веднага след Publish |
+| `SMTP_HOST` | хост на пощенския сървър | Да, за формата | SMTP сървър за запитванията от началото |
+| `SMTP_PORT` | `587` или `465` | Да, за формата | Порт. `465` ползва implicit TLS |
+| `SMTP_SECURE` | `true` само за порт 465 | Не | `true` включва implicit TLS. Празно при `587` |
+| `SMTP_USER` | SMTP потребител | Ако сървърът иска login | Потребител за nodemailer |
+| `SMTP_PASSWORD` | SMTP парола | Ако сървърът иска login | Парола. Не я комитвайте |
+| `SMTP_FROM` | `Planex Interior <interior@planexinvest.bg>` | Да, за формата | Адресът, от който тръгва писмото |
+| `SMTP_TO` | `interior@planexinvest.bg` | Да, за формата | Получател. Формата не може да го подмени |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | site key от Cloudflare | Да, за формата | Публичен ключ за виджета. След промяна е нужен нов deploy |
+| `TURNSTILE_SECRET_KEY` | secret key от Cloudflare | Да, за формата | Сървърен ключ за проверка на Turnstile. Не е публичен |
 
 Как да въведете една променлива:
 
@@ -57,6 +66,12 @@ Vercel → Project → **Settings → Environment Variables**.
 Без този секрет сайтът пак работи: `/portfolio/` се опреснява поне веднъж в минута. С него новите проекти излизат веднага след Publish.
 
 Не е нужен Sanity write token. Редакторите влизат в `/studio/` със Sanity акаунт. Сайтът чете само публикувани документи.
+
+### Форма за запитване
+
+Началната форма праща писмо през SMTP и пуска Cloudflare Turnstile преди изпращане. Без SMTP и Turnstile променливите формата показва, че временно не приема запитвания.
+
+В Cloudflare → Turnstile създайте виджет и добавете `localhost` и продукционния домейн като hostnames. Site key е публичен (`NEXT_PUBLIC_TURNSTILE_SITE_KEY`). Secret key остава само в env. След промяна на site key направете нов deploy.
 
 ---
 
