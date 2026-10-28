@@ -23,7 +23,7 @@ type SanityHomepageProject = {
 };
 
 function mapHomepageProject(project: SanityHomepageProject): HomePageProject | null {
-  const image = project.mainImage ? urlFor(project.mainImage).width(1600).quality(80).auto('format').url() : '';
+  const image = project.mainImage ? urlFor(project.mainImage)?.width(1600).quality(80).auto('format').url() : '';
   if (!project.title?.trim() || !project.location?.trim() || !image) return null;
   return { id: project._id, image, title: project.title.trim(), place: project.location.trim() };
 }
