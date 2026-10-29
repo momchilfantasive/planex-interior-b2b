@@ -117,8 +117,6 @@ export default function ContactForm() {
         return;
       }
 
-      form.reset();
-      resetWidget();
       setStatus({ tone: "success", text: "Благодарим ви. Запитването е изпратено и ще се свържем с вас." });
     } catch {
       setStatus({ tone: "error", text: ERRORS.send });
@@ -129,6 +127,14 @@ export default function ContactForm() {
   }
 
   const canSubmit = Boolean(SITE_KEY) && !widgetFailed && !pending;
+
+  if (status?.tone === "success") {
+    return (
+      <p className="formSuccess" role="status">
+        {status.text}
+      </p>
+    );
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -179,8 +185,8 @@ export default function ContactForm() {
           Проверката за сигурност не е налична. Пишете ни директно по електронната поща.
         </p>
       ) : null}
-      {status ? (
-        <p className="formNotice" data-tone={status.tone} role="status">
+      {status?.tone === "error" ? (
+        <p className="formNotice" data-tone="error" role="alert">
           {status.text}
         </p>
       ) : null}
