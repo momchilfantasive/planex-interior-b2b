@@ -295,14 +295,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .serviceEssayGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .serviceEssayImage { position: relative; aspect-ratio: 1.08; overflow: hidden; border-radius: 10px; background: #35414b; }
 .serviceEssayNote { max-width: 640px; margin: 26px auto 0; color: #596773; text-align: center; font-size: 16px; line-height: 1.65; }
-.serviceScope { padding: 96px 6vw 100px; background: #ebedf2; color: #35414b; }
+.serviceScope { padding: clamp(64px, 7vw, 104px) 7vw; background: #ebedf2; color: #35414b; }
 .serviceScopeHeading { max-width: 880px; margin: 0 auto 48px; text-align: center; }
 .serviceScopeHeading h2, .serviceClosing h2, .serviceProjectsHeading h2 { margin: 0 0 22px; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.18; letter-spacing: -.04em; }
 .serviceScopeHeading p { max-width: 720px; margin: 0 auto; font-size: 18px; line-height: 1.65; color: #596773; }
-.serviceScope ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; max-width: 1080px; padding: 0; margin: 0 auto; list-style: none; }
-.serviceScope li { display: grid; grid-template-columns: 34px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid #c6cdd6; }
-.serviceScope li > span { padding-top: 3px; color: #64717e; font-size: 14px; font-variant-numeric: tabular-nums; }
-.serviceScope li p { margin: 0; font-size: 17px; line-height: 1.7; color: #43515c; }
 .serviceClosing { padding: 90px 6vw; text-align: center; background: #45505d; color: #f7f9fa; }
 .serviceClosing h2 { max-width: 850px; margin-left: auto; margin-right: auto; }
 .serviceClosing > p { max-width: 800px; margin: 0 auto; color: #dce2e8; font-size: 18px; line-height: 1.75; }
@@ -351,7 +347,6 @@ html.lenis, html.lenis body { scroll-behavior: auto; }
 @media (max-width: 900px) {
   .serviceHeroHeading h1 { font-size: clamp(44px, 7.4vw, 72px); }
   .serviceProjectsGrid { gap: 18px; }
-  .serviceScope ol { gap: 0 30px; }
 }
 @media (max-width: 700px) {
   .serviceHero { padding-top: 48px; }
@@ -366,13 +361,9 @@ html.lenis, html.lenis body { scroll-behavior: auto; }
   .serviceEssayGrid { grid-template-columns: 1fr; gap: 16px; }
   .serviceEssayImage { aspect-ratio: 1.16; border-radius: 8px; }
   .serviceEssayNote { font-size: 15px; margin-top: 22px; }
-  .serviceScope { padding: 65px 7vw; }
   .serviceScopeHeading { margin-bottom: 30px; }
   .serviceScopeHeading h2, .serviceClosing h2, .serviceProjectsHeading h2 { font-size: 32px; }
   .serviceScopeHeading p { font-size: 16px; }
-  .serviceScope ol { grid-template-columns: 1fr; }
-  .serviceScope li { padding: 22px 0; grid-template-columns: 28px 1fr; gap: 14px; }
-  .serviceScope li p { font-size: 16px; }
   .serviceClosing { padding: 65px 7vw; }
   .serviceClosing > p { font-size: 16px; }
   .serviceProjects { padding: 65px 5vw; }
@@ -466,7 +457,6 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
 .serviceBodyCopy { width: 100%; max-width: 1060px; margin: 0; }
 .serviceScopeHeading, .serviceProjectsHeading { width: 100%; max-width: 1180px; margin: 0 0 44px; text-align: left; }
 .serviceScopeHeading p { max-width: 1060px; margin: 0; }
-.serviceScope ol { max-width: 1180px; margin: 0; }
 .serviceClosing { text-align: left; padding-left: 7vw; padding-right: 7vw; }
 .serviceClosing h2, .serviceClosing > p { max-width: 1060px; margin-left: 0; margin-right: 0; }
 .servicePage .contactBand { align-items: flex-start; text-align: left; }
@@ -496,7 +486,7 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
   .serviceHeroHeading { padding-right: 6vw; padding-left: 6vw; }
   .serviceHeroHeading h1 { font-size: clamp(42px, 6.5vw, 70px); }
   .serviceStatement { padding-right: 7vw; padding-left: 7vw; }
-  .serviceScopeHeading, .serviceProjectsHeading, .serviceScope ol { margin-left: 0; }
+  .serviceScopeHeading, .serviceProjectsHeading { margin-left: 0; }
   .aboutBrandHero { height: 56vw; min-height: 350px; }
 }
 @media (max-width: 700px) {
@@ -506,7 +496,6 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
   .serviceStatement { padding: 68px 7vw 44px; }
   .serviceStatementText h2 { text-align: left; }
   .serviceScopeHeading, .serviceProjectsHeading { margin-bottom: 30px; padding: 0; }
-  .serviceScope ol { margin: 0; }
   .serviceClosing { padding: 65px 7vw; }
   .servicePage .contactBand { align-items: flex-start; }
   .aboutBrandHero { height: 62vw; min-height: 270px; }
@@ -518,6 +507,76 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
   .hero h1 { font-size: 38px; line-height: 1.05; }
   .heroText { max-width: 100%; }
   .aboutBrandHero { min-height: 240px; }
+}
+
+/* Service scope cards */
+.serviceScope .serviceScopeHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+  align-items: end;
+  gap: clamp(24px, 5vw, 72px);
+  max-width: 1320px;
+  margin: 0 auto 44px;
+}
+.serviceScope .serviceScopeHeading h2 {
+  margin: 0;
+  font-size: clamp(36px, 4.2vw, 64px);
+  line-height: 1.08;
+  text-wrap: wrap;
+}
+.serviceScopeTitleLine {
+  line-height: inherit;
+  white-space: nowrap;
+}
+.serviceScope .serviceScopeHeading p {
+  max-width: 520px;
+  margin: 0;
+  font-size: 17px;
+}
+.serviceScopeTopics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+.serviceScopeTopics > li {
+  min-width: 0;
+  padding: clamp(20px, 2.8vw, 40px);
+  border-radius: 10px;
+  background: #f7f9fa;
+  box-shadow: 0 2px 6px rgb(53 65 75 / .035), 0 12px 32px rgb(53 65 75 / .065);
+}
+.serviceScopeIcon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 16px;
+  color: #087c95;
+}
+.serviceScopeTopics h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: clamp(19px, 2vw, 26px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.serviceScopeTopics li > p {
+  max-width: 58ch;
+  margin: 0;
+  color: #43515c;
+  font-size: 16px;
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .serviceScope .serviceScopeHeading { grid-template-columns: 1fr; gap: 20px; margin-bottom: 32px; }
+}
+@media (max-width: 640px) {
+  .serviceScope .serviceScopeHeading h2 { font-size: clamp(22px, 7.2vw, 38px); }
+  .serviceScope .serviceScopeHeading p { font-size: 16px; }
+  .serviceScopeTopics { grid-template-columns: 1fr; gap: 16px; }
 }
 
 /* Keep the homepage navigation available at tablet and phone widths. */
