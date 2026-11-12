@@ -575,3 +575,57 @@ button.portfolioLightboxClose svg, button.portfolioLightboxArrow svg { display: 
 .formSuccess { margin: 0; color: #f7f9fa; font-family: var(--font-montserrat), Arial, sans-serif; font-size: clamp(22px, 3.6vw, 40px); font-weight: 500; line-height: 1.12; letter-spacing: -.045em; }
 .darkContact button:disabled,
 .darkContact button:disabled:hover { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; background-size: 100% 100%; }
+
+/* About page */
+.aboutPage .aboutWrap { width: min(86%, 1320px); margin-inline: auto; }
+.aboutPage .aboutBrandHero { height: clamp(500px, 55vw, 720px); }
+.aboutPage .aboutBrandHeroShade { background: linear-gradient(180deg, rgba(28,38,47,.32), rgba(28,38,47,.76)); }
+.aboutPage .aboutBrandContent { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; padding-block: clamp(42px, 6vw, 80px); color: white; }
+.aboutPage .aboutBrandLogo { position: static; transform: none; width: clamp(200px, 24vw, 330px); }
+.aboutPage .aboutBrandContent h1 { max-width: 1000px; margin: 0; font-family: var(--font-montserrat), sans-serif; font-size: clamp(38px, 5.2vw, 70px); line-height: 1.1; font-weight: 500; letter-spacing: -.045em; }
+.aboutPage .aboutPageIntro { padding: clamp(70px, 8vw, 120px) 0; background: #ebedf2; color: #35414b; }
+.aboutIntroLayout { display: grid; grid-template-columns: 1.08fr .92fr; align-items: end; gap: clamp(32px, 6vw, 90px); }
+.aboutIntroCopy { grid-column: 2; grid-row: 1; }
+.aboutPage .aboutPageImage { grid-column: 1; grid-row: 1; min-height: 0; height: auto; aspect-ratio: 3 / 2; max-height: 680px; }
+.aboutPage .aboutPageImage img { object-position: center; }
+.aboutPage .aboutIntroCopy h2, .aboutPage .aboutTextLayout h2 { margin: 0 0 24px; font-family: var(--font-montserrat), sans-serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 500; line-height: 1.13; letter-spacing: -.04em; }
+.aboutIntroCopy p, .aboutWorkIntro p, .aboutStoryCopy { font-size: 18px; line-height: 1.75; }
+.aboutIntroCopy p { color: #53616d; }
+.aboutFigures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; margin-top: clamp(64px, 8vw, 112px); margin-bottom: 0; }
+.aboutFigures > div { display: flex; flex-direction: column; border-top: 1px solid #b9c2cc; padding-top: 24px; }
+.aboutFigures dt { order: 2; color: #53616d; font-size: 16px; line-height: 1.55; }
+.aboutFigures dd { order: 1; margin: 0 0 15px; color: #35414b; font-family: var(--font-montserrat), sans-serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.2; letter-spacing: -.04em; }
+.aboutFigureDetail { display: block; margin-top: 8px; font-size: 14px; }
+.aboutPage .aboutResponsibilities, .aboutPage .companyStory { display: block; padding: clamp(75px, 9vw, 130px) 0; }
+.aboutPage .aboutResponsibilities { background: #45505d; }
+.aboutTextLayout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px, 8vw, 130px); align-items: start; }
+.aboutWorkIntro p { max-width: 480px; color: #dce2e8; }
+.aboutPage .aboutResponsibilities ul { border-color: rgba(255,255,255,.25); }
+.aboutPage .aboutResponsibilities li { padding: 20px 0; font-size: 17px; }
+.aboutPage .aboutResponsibilities li::before { content: none; }
+.aboutPage .companyStory { position: relative; isolation: isolate; overflow: hidden; background: #ebedf2; }
+.aboutStoryMark { position: absolute; z-index: -1; left: 0; bottom: 32px; width: min(48vw, 500px); aspect-ratio: 126 / 150; transform: translateX(-20%); opacity: .16; pointer-events: none; }
+.aboutStoryMarkLayer { position: absolute; inset: 0; background: url('/planex-invest-mark.svg') center / contain no-repeat; }
+.aboutPage .aboutStoryCopy { max-width: 850px; color: #53616d; }
+.aboutPage .isoNote { font-size: 14px; }
+@media (max-width: 760px) {
+  .aboutPage .aboutWrap { width: 86%; }
+  .aboutPage .aboutBrandHero { height: 510px; min-height: 0; }
+  .aboutPage .aboutBrandContent { padding-block: 38px 48px; }
+  .aboutPage .aboutBrandContent h1 { font-size: clamp(34px, 8vw, 48px); }
+  .aboutIntroLayout, .aboutTextLayout { grid-template-columns: 1fr; gap: 30px; }
+  .aboutIntroCopy, .aboutPage .aboutPageImage { grid-column: auto; grid-row: auto; }
+  .aboutPage .aboutPageImage { aspect-ratio: 3 / 2; max-height: 620px; }
+  .aboutFigures { grid-template-columns: 1fr; gap: 26px; }
+  .aboutPage .aboutResponsibilities li { font-size: 16px; }
+}
+
+.aboutPage .companyStory > .aboutWrap { max-width: 1320px; color: inherit; font-size: inherit; line-height: inherit; }
+
+.aboutPage .contactBand { display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center; }
+.aboutPage .contactBand > div { width: 100%; }
+.aboutPage .contactBand p:not(.kicker) { margin-inline: auto; }
+.aboutPage .contactBand .pill { margin: 0; }
+@media (max-width: 760px) {
+  .aboutStoryMark { width: min(70vw, 300px); bottom: 24px; }
+}

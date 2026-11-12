@@ -101,6 +101,20 @@ export function SiteMotion() {
           });
         });
 
+        const aboutMark = document.querySelector<HTMLElement>('[data-about-mark]');
+        if (aboutMark) {
+          gsap.fromTo(aboutMark, { opacity: 0 }, {
+            opacity: 1,
+            duration: 0.9,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: aboutMark.closest('section'),
+              start: 'top 50%',
+              once: true,
+            },
+          });
+        }
+
         document.querySelectorAll<HTMLElement>('[data-parallax]').forEach(frame => {
           const layer = frame.querySelector<HTMLElement>('[data-parallax-layer]');
           if (!layer) return;
