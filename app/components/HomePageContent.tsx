@@ -6,19 +6,19 @@ import OfficeCarousel from "@/app/components/OfficeCarousel";
 
 const services = [
   {
-    image: "/images/service-concept-1.jpg",
+    image: "/images/service-concept-editorial.webp",
     title: "Интериорна концепция",
     href: "/uslugi/interiorna-kontseptsiya/",
     text: "Цялостна интериорна концепция, съобразена със стила на живот и работа, цветовите предпочитания, функционалността и удобството.",
   },
   {
-    image: "/images/service-finishing-1.jpg",
+    image: "/images/service-finishing-editorial.webp",
     title: "Довършителни работи",
     href: "/uslugi/dovrshitelni-raboti/",
     text: "Цялостна организация, планиране и контрол на строителните работи, доставките, обзавеждането и монтажа.",
   },
   {
-    image: "/images/service-renovation-2.jpg",
+    image: "/images/service-renovation-editorial.webp",
     title: "Ремонтни дейности",
     href: "/uslugi/remontni-deynosti/",
     text: "Цялостен или частичен ремонт на жилища и офиси, включително инсталации, настилки, стени, кухни, бани и обзавеждане.",
