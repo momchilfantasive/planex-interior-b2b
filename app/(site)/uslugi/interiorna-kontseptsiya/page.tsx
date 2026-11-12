@@ -34,7 +34,13 @@ export default function InteriorConceptPage() {
         description: 'Планираме санитарните помещения, цветовото решение, подредбата на плочките, материалите и оборудването. Консултираме при избора на материали и уреди, като отчитаме дизайн, съчетание, технология и предимства.',
       },
     ],
-    images: ['/images/service-concept-1.jpg', '/images/project-varna.jpg', '/images/project-office.jpg'],
+    images: ['/images/service-concept-1.jpg'],
+    editorial: {
+      heroAlt: 'Подбор на мостри за настилки и цветова палитра за интериор.',
+      detailSrc: '/images/concept-detail-pexels-4977459.webp',
+      detailAlt: 'Интериорни чертежи и мостри на материали върху работна маса.',
+      detailFormat: 'portrait',
+    },
     projects: [
       { title: 'Офис, кв. Витоша', place: 'София', image: 'https://planexinterior.bg/assets/Uploads/projects/titul-ofis-sofiya__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Тристаен апартамент', place: 'Варна, център', image: 'https://planexinterior.bg/assets/Uploads/projects/1-v2__FillMaxWzc3MCw4MDBd.jpg' },

@@ -34,7 +34,13 @@ export default function RenovationPage() {
         description: 'Цялостно обзавеждане, избор и изработка на мебели, текстил, аксесоари и декорация.',
       },
     ],
-    images: ['/images/service-renovation-2.jpg', '/images/project-briz.jpg', '/images/office-yavlena.jpg'],
+    images: ['/images/renovation-hero-pexels-9616959.webp'],
+    editorial: {
+      heroAlt: 'Преглед на архитектурни чертежи на работна маса.',
+      detailSrc: '/images/renovation-detail-pexels-36729966.webp',
+      detailAlt: 'Трима души преглеждат чертежи и документи на маса.',
+      detailFormat: 'wide',
+    },
     projects: [
       { title: 'Двустаен апартамент', place: 'Варна, кв. Бриз', image: 'https://planexinterior.bg/assets/Uploads/projects/DSC_1246__FillMaxWzc3MCw4MDBd.jpg' },
       { title: 'Офис', place: 'Варна', image: 'https://planexinterior.bg/assets/Uploads/projects/PJP_9116_7_8_q__FillMaxWzc3MCw4MDBd.jpg' },

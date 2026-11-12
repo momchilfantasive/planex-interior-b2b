@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ContactBand, SiteFooter, SiteHeader } from './SiteChrome';
 
 type ServiceProject = { title: string; place: string; image: string };
+type ServiceImageFormat = 'portrait' | 'wide';
 const scopeIconPaths = {
   ruler: 'M3 16 16 3l5 5L8 21zM7 12l2 2m1-5 2 2m1-5 2 2',
   sliders: 'M6 3v7m0 4v7M12 3v11m0 4v3m6-18v3m0 4v11M3 10h6m0 8h6m0-12h6',
@@ -34,33 +35,48 @@ type Service = {
   closing?: string;
   images: string[];
   projects: ServiceProject[];
+  editorial?: {
+    heroAlt: string;
+    detailSrc: string;
+    detailAlt: string;
+    detailFormat?: ServiceImageFormat;
+  };
 };
 
 function Pin() {
   return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>;
 }
 
-function ServiceImage({ src, alt, hero = false }: { src: string; alt: string; hero?: boolean }) {
-  return <div className={hero ? 'serviceHeroImage' : 'serviceEssayImage'} data-parallax>
+function ServiceImage({ src, alt, hero = false, sizes, format }: { src: string; alt: string; hero?: boolean; sizes?: string; format?: ServiceImageFormat }) {
+  return <div className={hero ? 'serviceHeroImage' : 'serviceEssayImage'} data-parallax data-image-format={format}>
     <div className="serviceImageLayer" data-parallax-layer>
-      <Image src={src} alt={alt} fill priority={hero} sizes={hero ? '100vw' : '(max-width: 700px) 100vw, 50vw'} />
+      <Image src={src} alt={alt} fill priority={hero} sizes={sizes ?? (hero ? '100vw' : '(max-width: 700px) 100vw, 50vw')} />
     </div>
   </div>;
 }
 
 export function ServicePage({ data }: { data: Service }) {
+  const { editorial } = data;
   const introSentences = data.intro[0].split(/(?<=[.!?])\s+/);
   const statementTitle = introSentences[0];
   const statementBody = [introSentences.slice(1).join(' '), ...data.intro.slice(1), data.imageCaption].filter(Boolean);
 
-  return <main className="innerPage servicePage">
+  return <main className={editorial ? 'innerPage servicePage servicePageEditorial' : 'innerPage servicePage'}>
     <SiteHeader />
     <section className="serviceHero" aria-labelledby="service-title">
       <div className="serviceHeroHeading">
         <h1 id="service-title">{data.title}</h1>
-        <p data-reveal>{data.subtitle}</p>
+        {editorial ? <div className="serviceHeroSummary">
+          <p data-reveal>{data.subtitle}</p>
+          <a className="pill" href="#service-scope-title">Какво включва услугата</a>
+        </div> : <p data-reveal>{data.subtitle}</p>}
       </div>
-      <ServiceImage src={data.images[0]} alt={data.title} hero />
+      <ServiceImage
+        src={data.images[0]}
+        alt={editorial?.heroAlt ?? data.title}
+        hero
+        sizes={editorial ? '(max-width: 760px) 90vw, (max-width: 1550px) 50vw, 770px' : undefined}
+      />
     </section>
 
     <section className="serviceStatement" id="service-overview" aria-labelledby="service-statement-title">
@@ -68,13 +84,17 @@ export function ServicePage({ data }: { data: Service }) {
         <h2 id="service-statement-title">{statementTitle}</h2>
         <div className="serviceBodyCopy">{statementBody.map(text => <p key={text} data-reveal>{text}</p>)}</div>
       </div>
+      {editorial && <ServiceImage src={editorial.detailSrc} alt={editorial.detailAlt} format={editorial.detailFormat} />}
     </section>
 
-    <section className="serviceImageEssay" aria-label={`Снимки за ${data.title}`}>
+    {data.images.length > 1 && <section className="serviceImageEssay" aria-label={`Снимки за ${data.title}`}>
       <div className="serviceEssayGrid">{data.images.slice(1).map((image, index) => <ServiceImage src={image} alt={`${data.title}, детайл ${index + 1}`} key={image} />)}</div>
-    </section>
+    </section>}
 
     <section className="serviceScope" aria-labelledby="service-scope-title">
+      {editorial && <div className="serviceScopeMark" aria-hidden="true" data-parallax="brand-mark">
+        <div className="serviceScopeMarkLayer" data-parallax-layer />
+      </div>}
       <div className="serviceScopeHeading">
         <h2 id="service-scope-title">
           {typeof data.scopeTitle === 'string' ? data.scopeTitle : <>

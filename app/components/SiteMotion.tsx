@@ -105,10 +105,22 @@ export function SiteMotion() {
           const layer = frame.querySelector<HTMLElement>('[data-parallax-layer]');
           if (!layer) return;
           const distance = context.conditions?.desktop ? 5 : 2.5;
-          gsap.fromTo(layer, { yPercent: -distance }, {
+          const isBrandMark = frame.dataset.parallax === 'brand-mark';
+          const markSection = isBrandMark ? frame.closest('section') : null;
+          const turn = context.conditions?.desktop ? 12 : 8;
+          gsap.fromTo(layer, {
+            yPercent: -distance,
+            ...(isBrandMark ? { rotation: -turn, opacity: .72 } : {}),
+          }, {
             yPercent: distance,
+            ...(isBrandMark ? { rotation: turn, opacity: 1 } : {}),
             ease: 'none',
-            scrollTrigger: { trigger: frame, start: 'top bottom', end: 'bottom top', scrub: true },
+            scrollTrigger: {
+              trigger: markSection ?? frame,
+              start: markSection ? 'top 12%' : 'top bottom',
+              end: markSection ? () => `+=${Math.max(320, markSection.offsetHeight * .62)}` : 'bottom top',
+              scrub: true,
+            },
           });
         });
 
