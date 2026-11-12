@@ -34,9 +34,9 @@ export default function InteriorConceptPage() {
         description: 'Планираме санитарните помещения, цветовото решение, подредбата на плочките, материалите и оборудването. Консултираме при избора на материали и уреди, като отчитаме дизайн, съчетание, технология и предимства.',
       },
     ],
-    images: ['/images/service-concept-1.jpg'],
+    images: ['/images/service-concept-editorial.webp'],
     editorial: {
-      heroAlt: 'Подбор на мостри за настилки и цветова палитра за интериор.',
+      heroAlt: 'Мостри от камък, текстил и метал върху интериорен чертеж.',
       detailSrc: '/images/concept-detail-pexels-4977459.webp',
       detailAlt: 'Интериорни чертежи и мостри на материали върху работна маса.',
       detailFormat: 'portrait',

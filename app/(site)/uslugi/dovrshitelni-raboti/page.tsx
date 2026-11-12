@@ -35,7 +35,7 @@ export default function FinishingWorksPage() {
       },
     ],
     closing: '„Планекс Инвест“ извършва довършителни работи и в имоти, чиято интериорна концепция не е дело на нашия екип. Ако вече имате готов интериорен проект или собствено решение за вътрешния дизайн на имота, можем да поемем строително-монтажните дейности и обзавеждането. Можете да възложите услугите ни цялостно или частично.',
-    images: ['/images/service-finishing-editorial.png'],
+    images: ['/images/service-finishing-editorial.webp'],
     editorial: {
       heroAlt: 'Илюстративен кадър на проверка на фугата между дъбова облицовка и стена.',
       detailSrc: '/images/finishing-detail-unsplash.webp',
